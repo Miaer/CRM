@@ -79,7 +79,7 @@
                             </a>
                         </div>
                     </li>
-                    <li class="list_m"><div class="nav-header"><a href="mailList.html" class="ue-clear" target="right"><span>项目管理</span><i class="icon"></i></a></div></li>
+                    <li class="list_m"><div class="nav-header"><a href="/view/project/project.jsp" class="ue-clear" target="right"><span>项目管理</span><i class="icon"></i></a></div></li>
                     <%--<li class="news_m"><div class="nav-header"><a href="notice.html" class="ue-clear"  target="right"><span>统计分析</span><i class="icon"></i></a></div></li>--%>
                     <%--<li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>档案管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">

@@ -42,7 +42,7 @@
         .bot_btn .btn1{background-color: #c1d3de;border: none;border-radius: 6px;color: #000;margin-right: 0}
         .bot_btn{width: 100%;height: 30px;font-size:13px;text-align:center;}
     </style>
-
+    <script src="/js/schedule.js"></script>
     <script src="/js/jquery.js"></script>
     <script>
         function change() {

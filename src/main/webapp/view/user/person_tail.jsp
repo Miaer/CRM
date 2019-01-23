@@ -45,10 +45,6 @@
                 <td>用户密码：</td>
                 <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="person"></td>
                 <tr>
-                    <%--<td>所属部门：</td>
-                    <td  style="text-align: left"><select>
-                        <option>xxxx</option>
-                    </select></td>--%>
                     <td>再次输入密码：</td>
                     <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="againPerson"></td>
                 </tr>
@@ -125,8 +121,6 @@
 
     }*/
     function RecodeSave() {
-
-
         var user = {
             userName : $("#recodeTit").val(),
             role:$("#roleOption option:selected").val(),

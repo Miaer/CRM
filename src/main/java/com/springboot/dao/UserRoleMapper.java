@@ -3,6 +3,9 @@ package com.springboot.dao;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.Map;
 
 public interface UserRoleMapper {
 
@@ -15,4 +18,9 @@ public interface UserRoleMapper {
             "</foreach> " +
             "</script>")
     int delUser(Integer[] uidArr);
+
+    int updateRole(String userId, String role);
+
+    @Select("select * from sys_user_role where user_id = #{id1}")
+    Map<String,String> findRoleByUserId(Long id1);
 }

@@ -3,6 +3,7 @@ package com.springboot.pojo;
 
 import lombok.Data;
 
+import javax.management.relation.Role;
 import javax.persistence.Id;
 import java.util.Date;
 

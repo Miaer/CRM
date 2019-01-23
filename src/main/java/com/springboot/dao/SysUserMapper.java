@@ -1,5 +1,6 @@
 package com.springboot.dao;
 
+import com.springboot.dao.Provider.UserReovider;
 import com.springboot.pojo.SysUser;
 import org.apache.ibatis.annotations.*;
 
@@ -16,7 +17,7 @@ public interface SysUserMapper {
     @Select("select * from sys_user where name = #{name}")
     SysUser findAllByName(String name);
 
-    @Select("select su.id 'uid',su.name,sr.id 'rid',sr.name 'rname',su.create_date from sys_user_role sur left join sys_user su on sur.user_id = su.id left join sys_role sr on sur.role_id = sr.id")
+    @Select("select su.id 'uid',su.name,sr.id 'rid',sr.name 'rname',su.create_date 'createDate' from sys_user_role sur left join sys_user su on sur.user_id = su.id left join sys_role sr on sur.role_id = sr.id WHERE su.`name` is not null")
     List<Map<String,String>> getCustromer();
 
     @Delete("<script> delete from sys_user where id in " +
@@ -28,4 +29,7 @@ public interface SysUserMapper {
 
     @Select("select * from sys_user where id = #{id}")
     SysUser findUserById(Integer id);
+
+    @UpdateProvider(type = UserReovider.class,method = "updateUser")
+    int updateUserInfo(SysUser user);
 }

@@ -110,4 +110,9 @@ public class CustromerServiceImpl implements CustromerService {
     public List<Customer> findCustomerByUserId(Long uid) {
         return custromerMapper.findCustomerByUserId(uid);
     }
+
+    @Override
+    public Map<String, String> findCustomerByVisitId(Integer id) {
+        return custromerMapper.findCustomerByVisitId(id);
+    }
 }

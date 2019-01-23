@@ -48,6 +48,13 @@ public class VisitController {
         return visit;
     }
 
+    @RequestMapping("/findCustomerByVisitId")
+    @ResponseBody
+    public Object findVisitByVisitId(Integer id){
+        Map<String, String> visit = custromerService.findCustomerByVisitId(id);
+        return visit;
+    }
+
     @RequestMapping("/findVisitAll")
     @ResponseBody
     public Object findVisitAll(HttpServletRequest request,String completeTime,String companyName){

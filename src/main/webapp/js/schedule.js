@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/8/4.
  */
 
-var workTitle, Publisher, visit_id, workTime, flag = true;
+var workTitle, Publisher,CurrentID, visit_id, workTime, flag = true;
 function scheduleload() {
     $(function () {
         $('#table').bootstrapTable({
@@ -56,7 +56,7 @@ function scheduleload() {
                     title: '预约时间',
                     field: 'visit_time',
                     align: 'center',
-                    formatter:function (value,row,index) {
+                    formatter:function (value) {
                         return changeDateFormat(value);
                     }
                 },
@@ -117,7 +117,6 @@ function addSchedule(id) {
         openlayer(id);
     }else {
         openlayerToAdd();
-
     }
     visit_id = "";
 }

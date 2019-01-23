@@ -26,7 +26,7 @@
                     <td style="border-top: none" >客户名称<i class="i_start"></i></td>
                     <td  colspan = "6"  style="text-align: left;border-top: none">
                         <select id="tit">
-                               <%-- <option value="${visitMap.customer_id}">${visitMap.company_name}</option>--%>
+                                <option value="${visitMap.customer_id}">${visitMap.company_name}</option>
                         </select>
                     </td>
                 </tr>
@@ -50,7 +50,7 @@
     </div>
     <div class="bot_btn">
         <input class="btn" onclick="submit()" value="预约"/>
-        <button class="btn btn1"><a href="customer.jsp" target="right">返回</a></button>
+        <button class="btn btn1"><a onclick="layer.close(index)" target="right">返回</a></button>
     </div>
 </div>
 </body>
@@ -102,9 +102,9 @@
     }();
 
     function init() {
-        if (parent.getVisitId() != "") {
+        if (parent.getCurrentID() != "") {
             $.ajax({
-                url: '/visit/findVisitById?id=' + parent.getVisitId(),
+                url: '/visit/findCustomerByVisitId?id=' + parent.getCurrentID(),
                 type: 'post',
                 dataType: 'json',
                 success: function (result) {
@@ -118,9 +118,6 @@
                         $("#arrangements").val(result.visit_matters);
                         $("#note").val(result.visit_memo);
                     }
-
-
-
                     else {
                         alert("获取失败！");
                     }

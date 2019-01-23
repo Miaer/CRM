@@ -1,5 +1,6 @@
 package com.springboot.controller;
 
+import com.springboot.dao.UserRoleMapper;
 import com.springboot.pojo.Customer;
 import com.springboot.pojo.CustomerType;
 import com.springboot.pojo.SysRole;
@@ -26,6 +27,8 @@ public class CustomerController {
     @Autowired
     private CustromerService custromerService;
 
+    @Autowired
+    private UserRoleMapper userRoleMapper;
     @Autowired
     private RoleService roleService;
 
@@ -86,9 +89,12 @@ public class CustomerController {
     @RequestMapping("/toUpdate")
     public String UpdateCustomer(@RequestParam("id")Integer id,Model model){
         SysUser user = userService.findUserById(id);
-        model.addAttribute("roleAll",user);
+        List<SysRole> roleAll = roleService.findRoleAll();
+        model.addAttribute("user",user);
+        model.addAttribute("roleAll",roleAll);
         return "user/person_update";
     }
+
 
 
     @RequestMapping("/toCustomerPage")

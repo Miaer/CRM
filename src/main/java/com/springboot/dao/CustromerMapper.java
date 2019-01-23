@@ -64,4 +64,7 @@ public interface CustromerMapper {
     })
     @Select("select * from customer where customer.user_id = #{uid}")
     List<Customer> findCustomerByUserId(Long uid);
+
+    @Select("select * from customer where id = (select customer_id FROM visit WHERE visit_id = #{id})")
+    Map<String, String> findCustomerByVisitId(Integer id);
 }

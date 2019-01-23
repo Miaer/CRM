@@ -28,4 +28,6 @@ public interface CustromerService {
 
     List<Customer> findCustomerByUserId(Long uid);
 
+    Map<String, String> findCustomerByVisitId(Integer id);
+
 }

@@ -19,53 +19,31 @@ function Personload() {
         columns: [
 
             {
-                checkbox:"true",
-                /*field: 'id',
-                align: 'center',  */          //居中对齐
+                checkbox:"true"
             },
             {
                 title: "用户id",
                 field: 'uid',
                 align: 'center',
-                visible:false,
-
             },
             {
                 title: "用户名",
                 field: 'name',
-                align: 'center',
+                align: 'center'
             },
             {
                 title: '角色',
                 field: 'rname',
-                align: 'center',
+                align: 'center'
             },
             {
                 title: '创建日期',
-                field: 'create_date',
-                align: 'center'
+                field: 'createDate',
+                align: 'center',
+                formatter:function (value,row,index) {
+                    return changeDateFormat(value);
+                }
             },
-           /* {
-                checkbox:"false",
-                field: 'rid',
-                align: 'center',
-                visible:false
-            },*/
-           /* {
-                title: '部门',
-                field: 'type',
-                align: 'center'
-            },*/
-            /*{
-                title: '密码',
-                field: 'work',
-                align: 'center'
-            },*/
-            /*{
-                title: '状态',
-                field: 'name',
-                align: 'center',
-            },*/
             {
                 title: '操作',
                 field: '',
@@ -84,7 +62,6 @@ function getData() {
     if (flag) {
         user = "";
         role = "";
-
         flag = false;
     } else {
         user = $("#user").val();
@@ -107,8 +84,8 @@ function add(id) {
     currentID = "";
 }
 function edit(id) {
-    update(id);
     currentID = id;
+    update(id);
 }
 function del(id) {
     var uidArr = [];

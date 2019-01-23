@@ -22,7 +22,7 @@
 <div class="title"><h2>预约客户</h2></div>
 <div class="query">
     <div class="tabe_bot">
-        <%--<div class="l_left"><label>预约客户：</label><input type="text" placeholder="请输入客户" id="tit"></div>--%>
+        <div class="l_left"><label>预约客户：</label><input type="text" placeholder="请输入客户" id="tit"></div>
         <div class="l_left"><label>预约时间：</label><input id="demo" placeholder="输入年月" /></div>
         <button class="tabe_btn " onclick=" getScheduleTableData();">查询</button>
         <div class="clear"></div>

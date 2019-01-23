@@ -103,4 +103,10 @@ public class UserController {
         request.getSession().removeAttribute("uid");
         return "login";
     }
+
+    @RequestMapping("/updateUser")
+    public String updateUser(HttpServletRequest request){
+        Boolean aBoolean = userService.updateUserInfo(request);
+        return "";
+    }
 }
