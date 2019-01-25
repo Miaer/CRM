@@ -37,6 +37,7 @@ public class MyRealm extends AuthorizingRealm {
         if (user == null){//用户名不存在
             return null;
         }
+
         //判断密码
         return new SimpleAuthenticationInfo("",user.getPassword(),"");
     }

@@ -7,6 +7,7 @@
     <link href="/css/bootstrap-table.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/info-mgt.css" />
+    <link rel="stylesheet" href="/css/chengye.css" />
     <style>
         .layui-layer-title{background:url(images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
         .tabe_bot label{width: 70px;text-align: right;font-size: 14px;font-weight: 900;color: #46647e}
@@ -21,7 +22,7 @@
 <div class="title"><h2>客户管理</h2></div>
 <div class="query">
     <div class="tabe_bot">
-        <div class="l_left"><label>客户姓名：</label><input type="text" placeholder="请输入姓名" id="customName"></div>
+        <div class="l_left zborder"><label>客户姓名：</label><input type="text" placeholder="请输入姓名" id="customName"></div>
         <div class="l_left"><label>添加时间：</label><input id="time" placeholder="输入年月" /></div>
         <button class="tabe_btn " onclick="getData()">查询</button>
         <div class="clear"></div>

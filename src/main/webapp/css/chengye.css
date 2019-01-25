@@ -1,0 +1,22 @@
+.zborder{
+    border: 5px solid yellow;
+}
+
+.zcenter{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+
+/*html,*/
+/*body{*/
+    /*height: 100%;*/
+    /*width:100%;*/
+    /*position:absolute;*/
+/*}*/
+
+div1 {
+    border: 5px solid yellow;
+}

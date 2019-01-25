@@ -37,6 +37,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     @RequestMapping("login")
     public String Login(String userName, String password, Model model){
         //获取Subject

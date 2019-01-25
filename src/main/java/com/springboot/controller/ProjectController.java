@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RequestMapping("project")
 @Controller
+@RequestMapping("project")
 public class ProjectController {
-
 
     @RequestMapping("/findProjectList")
     @ResponseBody

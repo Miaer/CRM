@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/css/jquery.dialog.css" />
 <link rel="stylesheet" href="/css/index.css" />
-    <style>
-        .layui-layer-title{background:url(/images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
-    </style>
+    <link rel="stylesheet" href="/css/chengye.css" />
+<style>
+    .layui-layer-title{background:url(/images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
+</style>
 <title>橙叶管理系统</title>
 </head>
 <body>
@@ -79,7 +80,14 @@
                             </a>
                         </div>
                     </li>
-                    <li class="list_m"><div class="nav-header"><a href="/view/project/project.jsp" class="ue-clear" target="right"><span>项目管理</span><i class="icon"></i></a></div></li>
+                    <li class="list_m">
+                        <div class="nav-header">
+                            <a href="/view/project/project.jsp" class="ue-clear" target="right">
+                                <span>项目管理</span>
+                                <i class="icon"></i>
+                            </a>
+                        </div>
+                    </li>
                     <%--<li class="news_m"><div class="nav-header"><a href="notice.html" class="ue-clear"  target="right"><span>统计分析</span><i class="icon"></i></a></div></li>--%>
                     <%--<li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>档案管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
@@ -88,7 +96,13 @@
 
                         </ul>
                     </li>--%>
-                    <li class="part"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>系统管理</span><i class="icon hasChild"></i></a></div>
+                    <li class="part">
+                        <div class="nav-header">
+                            <a href="JavaScript:;" class="ue-clear" >
+                                <span>系统管理</span>
+                                <i class="icon hasChild"></i>
+                            </a>
+                        </div>
                         <ul class="subnav">
                             <%--?后面默认都是传的String类型的参数   如果想要其他类型 需要转--%>
                             <li><a href="/user/toCustomerPage" target="right">用户管理</a></li>
