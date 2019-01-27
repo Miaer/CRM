@@ -29,6 +29,7 @@ public class CustomerController {
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
     @Autowired
     private RoleService roleService;
 
@@ -141,5 +142,13 @@ public class CustomerController {
             aBoolean = custromerService.delCustomer(cusArr,request);
         }
         return aBoolean;
+    }
+
+    @RequestMapping("/findCustomerById")
+    @ResponseBody
+    public Map<String, Object> findVisitById(Integer id){
+        Map<String, Object> customer = custromerService.findCustomerById(id);
+        System.out.println(customer);
+        return customer;
     }
 }

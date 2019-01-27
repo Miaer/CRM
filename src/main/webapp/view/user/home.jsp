@@ -293,7 +293,7 @@
 
 <h1 class="color:red">欢迎来到橙叶管理系统</h1>
 </body>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-table.js"></script>
 <script src="/js/bootstrap-table-zh-CN.min.js"></script>
@@ -348,7 +348,7 @@
         });
     })
 </script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript">
 $(".title-list ul").on("click","li",function(){
 	var aIndex = $(this).index();

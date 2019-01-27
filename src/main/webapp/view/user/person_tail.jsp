@@ -64,70 +64,21 @@
 </form>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script src="/js/schedule.js"></script>
+<script src="/js/layer_v2.1/layer/layer.js"></script>
 <script >
-    /*$.validator.setDefaults({
-        submitHandler: function() {
-            alert("修改成功");
-        }
-    });
-    $().ready(function() {
-        $("#form_demo").validate();
-    });*/
+
 </script>
 <script src="/js/date/js/laydate.js"></script>
 <script>
-    var PROJECTID, TASKTYPE, TASKPHASE,  PERSONID
     !function () {
         laydate.skin('danlan');//切换皮肤，请查看skins下面皮肤库
         laydate({ elem: '#demo' });//绑定元素
         laydate({ elem: '#demo1' });
         laydate({ elem: '#demo2' });//绑定元素
     }();
-    /*function init() {
-        if (parent.getCurrentID() != "") {
-            $.ajax({
-                url: '../TaskRecord/SearchTaskById?taskId=' + parent.getCurrentID(),
-                type: 'POST',
-                dataType: 'json',
-                success: function (result) {
-                    var data = result.data;
-                    if (data) {
-                        PROJECTID = data.PROJECTID
-                        PERSONID =data.PERSONID
-                        TASKPHASE = data.TASKPHASE;
-                        TASKTYPE = data.TASKTYPE;
-                        $("#tit").val(data.PROJECTNAME);
-                        $("#person").val(data.TASKPHASENAME);
 
-
-                        $("#demo").val(getFormatTime(data.STARTTIME.substring(6,19)));
-
-
-                        $("#NOTE").val(data.NOTE);
-
-
-
-                    }
-                    else {
-                        alert("获取失败！");
-                    }
-                },
-                error: function (err) {
-                }
-            })
-
-        }
-
-    }*/
     function RecodeSave() {
-        var user = {
-            userName : $("#recodeTit").val(),
-            role:$("#roleOption option:selected").val(),
-            password: $("#person").val(),
-            againPassword: $("#againPerson").val(),
-            note: $("#note").val(),
-        };
+
         $.ajax({
             type: "POST",
             url: "/customer/addCustomer",
@@ -140,24 +91,21 @@
             },
             dataType: "json",
             success: function (result) {
-                alert(result);
                 if (result) {
-                    alert("保存成功！！！");
-                    /*parent.getRecodeTableData();
-                    TaskCancel();*/
-                    parent.location.href="/view/user/person.jsp";
-                } else {
-                    alert("保存失败！！！");
+                    layer.open({
+                        anim:1,
+                        closeBtn:1,
+                        title: '添加信息',
+                        content: '添加成功',
+                        yes:function(){             //确定按钮回调方法
+                            parent.location.reload();
+                        }
+                    });
                 }
+                parent.location.reload();
             }
-        })
+        });
     }
-    function TaskCancel() {
-        var index = parent.layer.getFrameIndex(window.name);
-        parent.layer.close(index);
-    }
-
-
 
     //时间格式化函数
     function getFormatTime(time) {

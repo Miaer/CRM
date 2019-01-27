@@ -112,11 +112,6 @@ function del(id) {
         dataType: 'json',
         success: function (data) {
             if (data) {
-                /*layer.open({
-                    type:1,
-                    content:"删除成功",
-                    time:3000
-                });*/
                 alert("删除成功");
                 getData();
             } else {
@@ -142,7 +137,7 @@ function openlayer(id){
         area: ['80%', '90%'],
         shadeClose: true,
         closeBtn: 2,
-        content: '/customer/toAdd?'
+        content: '/customer/toAdd'
         //iframe的url
     });
 }

@@ -44,7 +44,7 @@ public class VisitController {
     @RequestMapping("/findVisitById")
     @ResponseBody
     public Object findVisitById(Integer id){
-        Map<String, String> visit = custromerService.findCustomerById(id);
+        Map<String, Object> visit = custromerService.findCustomerById(id);
         return visit;
     }
 
