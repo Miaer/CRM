@@ -2,23 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kharna-Admin Dashboard</title>
-
     <script src="/js/jquery-1.10.1.js"></script>
-    <%--<script src="/js/Login.js"></script>--%>
-    <!--Bootstrap.min css-->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!--Icons css-->
-    <%--<link rel="stylesheet" href="/css/icons.css">--%>
-    <!--Style css-->
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+<script src="/js/layer_v2.1/layer/layer.js"></script>
 <body class="bg-primary">
-${msg}
+
 <div id="app">
     <section class="section section-2">
         <div class="container">
@@ -34,12 +27,12 @@ ${msg}
                                         <input type="text" id="userName" name="userName">
                                         <label>Mail or Username</label>
                                     </div>
+                                    ${msg}
                                     <div class="passwd">
                                         <input type="password" id="userPass" name="password">
                                         <label>Password</label>
                                     </div>
                                     <div class="submit">
-                                        <!--<a class="btn btn-primary btn-block" onclick="Login_method();">Login</a>-->
                                         <button class="btn btn-primary btn-block" type="submit">Login</button>
                                     </div>
                                     <p class="mb-2"><a href="forgot.html">Forgot Password</a></p>

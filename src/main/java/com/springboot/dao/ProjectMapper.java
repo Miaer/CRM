@@ -4,6 +4,7 @@ import com.springboot.dao.Provider.ProjectInvestProvider;
 import com.springboot.pojo.Project;
 import com.springboot.pojo.ProjectInvest;
 import org.apache.ibatis.annotations.*;
+import org.omg.PortableInterceptor.INACTIVE;
 import sun.reflect.CallerSensitive;
 
 import java.util.List;
@@ -73,8 +74,8 @@ public interface ProjectMapper {
     @InsertProvider(type = ProjectInvestProvider.class,method = "insertProjectInvest")
     int insertProjectInvest(ProjectInvest projectInvest);
 
-    @Select("SELECT user_fee1,user_fee2,user2_fee1,user2_fee2 FROM project_invest WHERE project_invest.project_id = #{proId} AND project_invest.user1_name = #{userName}")
-    Map<String, Object> findProjecatInvestUserFeeByUserName(@Param("userName") String userName,@Param("proId") Integer proId);
+    @Select("SELECT user_fee1,user_fee2,user2_fee1,user2_fee2 FROM project_invest WHERE project_invest.project_id = #{proId} AND project_invest.user1_name = #{userName} AND project_invest.customer_id = #{customerId}")
+    Map<String, Object> findProjecatInvestUserFeeByUserName(@Param("userName") String userName, @Param("proId") Integer proId,@Param("customerId") Integer customerId);
 
     @Delete("delete  from project_invest where project_invest.project_id = #{proId} AND project_invest.customer_id = #{cuId}")
     int deleteProjectInvestByProId(@Param("cuId") Integer id,@Param("proId") Integer proId);

@@ -21,7 +21,7 @@ public interface ProjectService {
 
     Boolean updateProject(HttpServletRequest request, Projectview projectview);
 
-    Map<String, Object> findProjecatInvestUserFeeByUserName(String userName, Integer proId);
+    Map<String, Object> findProjecatInvestUserFeeByUserName(String userName, Integer proId,Integer customerId);
 
     Boolean deleteProjectInvestByProId(Integer id, Integer proId);
 }

@@ -31,12 +31,14 @@ function init() {
             $("#assert_volumn").val(result.assert_volumn);
             $("#person_company").val(result.person_company);
         }});
+
 }
 
 function initUser1(){
     var userName = $("#user1Name option:selected").text();
+    var customerId = $("#customerid option:selected").val();
     $.ajax({
-        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID,
+        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
         success: function (result) {
             $("#user_fee1").val(result.user_fee1);
             $("#user_fee2").val(result.user_fee2);
@@ -46,8 +48,9 @@ function initUser1(){
 
 function initUser2(){
     var userName = $("#user2Name option:selected").text();
+    var customerId = $("#customerid option:selected").val();
     $.ajax({
-        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID,
+        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
         success: function (result) {
             $("#user2_fee1").val(result.user2_fee1);
             $("#user2_fee2").val(result.user2_fee2);

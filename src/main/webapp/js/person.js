@@ -21,11 +21,11 @@ function Personload() {
             {
                 checkbox:"true"
             },
-            {
+            /*{
                 title: "用户id",
                 field: 'uid',
                 align: 'center',
-            },
+            },*/
             {
                 title: "用户名",
                 field: 'name',
@@ -96,6 +96,12 @@ function del(id) {
         return row ;
     });
 
+    if (row.length == 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
+
     for(var i=0;i<row.length;i++){
         uidArr[i] = row[i].uid;
     }
@@ -128,7 +134,7 @@ function getCurrentID() {
 function openlayer(id){
     layer.open({
         type: 2,
-        title: '添加信息',
+        title: '添加用户',
         shadeClose: true,
         shade: 0.5,
         skin: 'layui-layer-rim',

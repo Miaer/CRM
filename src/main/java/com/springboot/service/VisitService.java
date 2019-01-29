@@ -23,4 +23,6 @@ public interface VisitService {
     Map<String,String> findVisitByOneId(Integer visitId);
 
     Boolean updateCheduleState(Integer id);
+
+    Boolean addVisitRecords(Visit visit);
 }

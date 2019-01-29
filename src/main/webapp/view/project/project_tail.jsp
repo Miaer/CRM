@@ -18,7 +18,7 @@
 
 <body onload="Recodeload()">
 <div class="table-operate ue-clear">
-    <a href="#" class="add"  onclick="addRecode()">++</a>
+    <a href="#" class="add" style="width: 65px;" onclick="addRecode()">添加客户</a>
 </div>
 <div class="table-box">
     <table id="table" class="table_style"></table>
@@ -42,33 +42,5 @@
 <script src="/js/layer_v2.1/layer/layer.js"></script>
 
 <script>
-    /*function init() {
-        var currentID = parent.getCurrentID();
-        if (currentID != "") {
-            $.ajax({
-                url: '/project/initProject?projectid=' + currentID,
-                type: 'POST',
-                dataType: 'json',
-                success: function (result) {
-                    if (result) {
-                        PROJECTID = data.PROJECTID;
-                        PERSONID =data.PERSONID;
-                        TASKPHASE = data.TASKPHASE;
-                        TASKTYPE = data.TASKTYPE;
-                        $("#tit").val(data.PROJECTNAME);
-                        $("#person").val(data.TASKPHASENAME);
-                        $("#demo").val(getFormatTime(data.STARTTIME.substring(6,19)));
-                        $("#NOTE").val(data.NOTE);
-                    }
-                    else {
-                        alert("获取失败！");
-                    }
-                },
-                error: function (err) {
-                }
-            })
-        }
-
-    }*/
 </script>
 </html>

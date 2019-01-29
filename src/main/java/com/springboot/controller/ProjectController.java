@@ -113,10 +113,10 @@ public class ProjectController {
 
     @RequestMapping("/findProjecatInvestUser1NameByUserId")
     @ResponseBody
-    public Object findProjecatInvestUserNameByUserId(String userName,Integer proId){
+    public Object findProjecatInvestUserNameByUserId(String userName,Integer proId,Integer customerId){
         System.out.println(userName);
         System.out.println(proId);
-        Map<String,Object> proUserName =  projectService.findProjecatInvestUserFeeByUserName(userName,proId);
+        Map<String,Object> proUserName =  projectService.findProjecatInvestUserFeeByUserName(userName,proId,customerId);
         return proUserName;
     }
 }

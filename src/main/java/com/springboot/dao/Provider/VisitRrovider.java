@@ -24,6 +24,9 @@ public class VisitRrovider {
                 if(visit.getVisitTime()!=null) {
                     VALUES("visit_time", "#{visitTime}");
                 }
+                if(visit.getVisitCompleteTime()!=null) {
+                    VALUES("visit_complete_time", "#{visitCompleteTime}");
+                }
             }
         }.toString();
     }

@@ -35,20 +35,14 @@ function Roleload() {
                 align: 'center',
                 valign: 'middle'
             },
-           /* {
-                title: '角色描述',
-                field: '',
-                align: 'center',
-                valign: 'middle'
-            },*/
             {
                 title: '操作',
                 field: '',
                 align: 'center',
                 formatter: function (value, row) {
-                    var e = '<button button="#" mce_href="#" onclick="editRole(\'' + row.id + '\')">权限修改</button> '
+                    /*var e = '<button button="#" mce_href="#" onclick="editRole(\'' + row.id + '\')">权限修改</button> '*/
                     var d = '<button button="#" mce_href="#" onclick="delRole(\'' + row.id + '\')">删除</button> '
-                    return e +d ;
+                    return d ;
                 }
             }
         ]
@@ -109,6 +103,12 @@ function delRole(id) {
     var row = $.map($("#table").bootstrapTable('getSelections'),function(row){
         return row ;
     });
+
+    if (row.length == 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
 
     for(var i=0;i<row.length;i++){
         ridArr[i] = row[i].id;

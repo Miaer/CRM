@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/info-mgt.css" />
     <style>
-        .layui-layer-title{background:url(images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
+        .layui-layer-title{background:url(/images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
         .tabe_bot label{width: 70px;text-align: right;font-size: 14px;font-weight: 900;color: #46647e}
         .l_left{float: left}
         .tabe_bot input,.tabe_bot  select{width: 180px;height: 30px;border-radius: 6px;margin:0 20px 0 0;border: none;border: 1px #ccc solid}
@@ -29,8 +29,8 @@
     </div>
 </div>
 <div class="table-operate ue-clear">
+    <a href="javascript:;" class="add" onclick="addVisit()">添加</a>
     <a href="javascript:;" class="del" onclick="delVisit()">删除</a>
-    <%--<a href="javascript:;" class="out" onclick="outRecode()">导出</a>--%>
     <%--<a href="javascript:;" class="count">统计</a>--%>
 </div>
 <div class="table-box">
@@ -38,13 +38,14 @@
 </div>
 <div class="pagination ue-clear"></div>
 </body>
-<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-1.10.1.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-table.js"></script>
 <script src="/js/bootstrap-table-zh-CN.min.js"></script>
 <script src="/js/date/js/laydate.js"></script>
 <script src="/js/visit.js"></script>
 <script src="/js/schedule.js"></script>
+<script src="/js/layer_v2.1/layer/layer.js"></script>
 <script>
     !function(){
         laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库

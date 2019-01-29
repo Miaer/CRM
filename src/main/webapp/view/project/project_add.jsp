@@ -31,7 +31,7 @@
     </div>
     <div class="bot_btn">
         <input class="btn" type="submit" value="保存"/>
-        <button class="btn btn1"><a href="notice.html" target="right">返回</a></button>
+        <button class="btn btn1"><a href="#" onclick="layerClose()" target="right">返回</a></button>
     </div>
 </div>
 </form>
@@ -39,7 +39,9 @@
 <script type="text/javascript" src="/js/jquery-1.10.1.js"></script>
 <script src="/js/jquery-validation-1.14.0/dist/jquery.validate.js"></script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>
+<script src="/js/schedule.js"></script>
 <script >
+
     $.validator.setDefaults({
         submitHandler: function() {
             RecodeSave();
@@ -87,48 +89,12 @@
 
     }
     function RecodeSave() {
-
         $.ajax({
             type: "POST",
             url: "/project/addProject",
             traditional:true,
-            data: {
-                projectname : $("#projectName").val(),
-                /*
-                                investDate : $("#invest_date").val(),
-
-                                customerId : $("#customerid").val(),
-
-                                investAmount : $("#invest_amount").val(),
-
-
-                                investFee : $("#invest_fee").val(),
-
-                                collect : $("#huiZong").val(),
-                                projectMemo : $("#project_memo").val(),
-                                identification : $("#identification").val(),
-
-
-                                personPhone : $("#person_phone").val(),
-                                personPhone2 : $("#person_phone2").val(),
-                                homeAddress : $("#home_address").val(),
-                                assertVolumn : $("#assert_volumn").val(),
-                                personCompany : $("#person_company").val(),
-                                personPositoin : $("#person_positoin").val(),
-
-
-                                user1name : $("#user1Name").val(),
-                                user2name : $("#user2Name").val(),
-
-
-                                userFee1 : $("#user_fee1").val(),
-                                userFee2 : $("#user_fee2").val(),
-                                user2Fee1 : $("#user2_fee1").val(),
-                                user2Fee2 : $("#user2_fee2").val(),
-                                cumemo : $("#cumemo").val()
-                                        */
-            },
-            dataType: "json",
+            data: { projectname : $("#projectName").val() }
+            dataType: 'json',
             success: function (result) {
                 if (result) {
                     layer.msg('保存成功', {
@@ -142,14 +108,13 @@
                     alert("保存失败！！！")
                 }
             }
-        })
+        });
     }
+
     function TaskCancel() {
         var index = parent.layer.getFrameIndex(window.name);
         parent.layer.close(index);
     }
-
-
 
     //时间格式化函数
     function getFormatTime(time) {

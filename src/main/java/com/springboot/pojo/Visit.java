@@ -20,4 +20,7 @@ public class Visit {
 
     @DateTimeFormat(pattern="yyyy-mm-dd HH:mm:ss")
     private Date visitTime;
+
+    @DateTimeFormat(pattern="yyyy-mm-dd HH:mm:ss")
+    private Date visitCompleteTime;
 }

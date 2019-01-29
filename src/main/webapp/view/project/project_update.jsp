@@ -28,7 +28,7 @@
                         <td>投资人：</td>
                         <%--此处选择已有的客户，如果没有，让用户选择添加--%>
                         <td colspan = "1" style="text-align: left">
-                            <select id="customerid" onchange="init()">
+                            <select id="customerid" onchange="init(),initUser1(),initUser2()">
                                 <c:forEach items="${customerList}" var="customer">
                                     <option value="${customer.id}">${customer.companyName}</option>
                                 </c:forEach>
@@ -117,10 +117,11 @@
     </div>
     <div class="bot_btn">
         <input class="btn" type="submit" value="保存"/>
-        <button class="btn btn1"><a href="notice.html" target="right">返回</a></button>
+        <button class="btn btn1"><a onclick="layerClose()" target="right">返回</a></button>
     </div>
 </div>
 </form>
+<script src="/js/schedule.js"></script>
 <script>
     !function () {
         laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库

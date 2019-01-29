@@ -44,6 +44,14 @@
                             </a>
                         </div>
                     </li>--%>
+                        <li class="email">
+                            <div class="nav-header">
+                                <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
+                                    <span>客户管理</span>
+                                    <i class="icon"></i>
+                                </a>
+                            </div>
+                        </li>
                     <li class="land">
                         <div class="nav-header">
                             <a href="JavaScript:;" class="ue-clear" >
@@ -71,14 +79,7 @@
                             <li><a href="train.html" target="right">培训管理</a></li>
                         </ul>
                     </li>--%>
-                    <li class="email">
-                        <div class="nav-header">
-                            <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
-                                <span>客户管理</span>
-                                <i class="icon"></i>
-                            </a>
-                        </div>
-                    </li>
+
                     <li class="list_m"><div class="nav-header"><a href="/view/project/project.jsp" class="ue-clear" target="right"><span>项目管理</span><i class="icon"></i></a></div></li>
                     <%--<li class="news_m"><div class="nav-header"><a href="notice.html" class="ue-clear"  target="right"><span>统计分析</span><i class="icon"></i></a></div></li>--%>
                     <%--<li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>档案管理</span><i class="icon hasChild"></i></a></div>

@@ -128,8 +128,6 @@ public class ProjectServiceImpl implements ProjectService {
 
         }else {//新增
             int i = projectMapper.insertProjectInvest(projectInvest);
-            //Map<String, Object> customerById = customerMapper.findCustomerById(customerId);
-            //int i1 = customerMapper.insertCustomerByCustomer(customer1);
             int i1 = customerMapper.updateCustromer(customer1);
             if (i > 0 && i1 > 0){
                 var = true;
@@ -141,8 +139,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Map<String, Object> findProjecatInvestUserFeeByUserName(String userName, Integer proId) {
-        return projectMapper.findProjecatInvestUserFeeByUserName(userName,proId);
+    public Map<String, Object> findProjecatInvestUserFeeByUserName(String userName, Integer proId,Integer customerId) {
+        return projectMapper.findProjecatInvestUserFeeByUserName(userName,proId,customerId);
     }
 
     @Override
