@@ -291,7 +291,7 @@
 
 
 
-<h1 class="color:red">欢迎来到橙叶管理系统</h1>
+<h1 class="color:red" style="color: #00a2d4">欢迎来到橙叶管理系统</h1>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>

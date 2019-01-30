@@ -44,14 +44,14 @@
                             </a>
                         </div>
                     </li>--%>
-                        <li class="email">
-                            <div class="nav-header">
-                                <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
-                                    <span>客户管理</span>
-                                    <i class="icon"></i>
-                                </a>
-                            </div>
-                        </li>
+                    <li class="email">
+                        <div class="nav-header">
+                            <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
+                                <span>客户管理</span>
+                                <i class="icon"></i>
+                            </a>
+                        </div>
+                    </li>
                     <li class="land">
                         <div class="nav-header">
                             <a href="JavaScript:;" class="ue-clear" >
@@ -80,7 +80,13 @@
                         </ul>
                     </li>--%>
 
-                    <li class="list_m"><div class="nav-header"><a href="/view/project/project.jsp" class="ue-clear" target="right"><span>项目管理</span><i class="icon"></i></a></div></li>
+                    <li class="list_m" id="disappear1">
+                        <div class="nav-header" >
+                        <a href="/view/project/project.jsp" class="ue-clear" target="right">
+                        <span>项目管理</span>
+                            <i class="icon"></i>
+                        </a></div>
+                    </li>
                     <%--<li class="news_m"><div class="nav-header"><a href="notice.html" class="ue-clear"  target="right"><span>统计分析</span><i class="icon"></i></a></div></li>--%>
                     <%--<li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>档案管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
@@ -89,7 +95,13 @@
 
                         </ul>
                     </li>--%>
-                    <li class="part"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>系统管理</span><i class="icon hasChild"></i></a></div>
+                    <li class="part" id="disappear">
+                        <div class="nav-header">
+                            <a href="JavaScript:;" class="ue-clear" >
+                                <span>系统管理</span>
+                                <i class="icon hasChild"></i>
+                            </a>
+                        </div>
                         <ul class="subnav">
                             <%--?后面默认都是传的String类型的参数   如果想要其他类型 需要转--%>
                             <li><a href="/user/toCustomerPage" target="right">用户管理</a></li>
@@ -124,20 +136,17 @@
 <script type="text/javascript" src="/js/jquery.dialog.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>
-<script type="text/javascript">
-    function openlayer(id){
-        layer.open({
-            type: 2,
-            title: '修改密码',
-            shadeClose: false,
-            shade: 0.5,
-            skin: 'layui-layer-rim',
-//            maxmin: true,
-            closeBtn:2,
-            area: ['35%', '40%'],
-            content: 'password.html'
-            //iframe的url
-        });
-    }
+<script>
+     $(function () {
+         $.ajax({
+             url:"/user/findRoleByUserId",
+             success:function (data) {
+                 if (data == "理财师"){
+                    $("#disappear").css('visibility','hidden');
+                    $("#disappear1").css('visibility','hidden');
+                 }
+             }
+         });
+     });
 </script>
 </html>

@@ -54,4 +54,11 @@ public class RoleServiceImpl implements RoleService {
         return false;
     }
 
+    @Override
+    public String findRoleByUserId(HttpServletRequest request) {
+        Long uid = (Long) request.getSession().getAttribute("uid");
+        String role = sysRoleMapper.findRoleByUserId(uid);
+        return role;
+    }
+
 }

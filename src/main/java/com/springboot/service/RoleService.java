@@ -19,4 +19,6 @@ public interface RoleService {
     Boolean insertRoleByName(HttpServletRequest request);
 
     Boolean delRole(Integer[] ridArr);
+
+    String findRoleByUserId(HttpServletRequest request);
 }

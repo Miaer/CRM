@@ -22,4 +22,7 @@ public interface SysRoleMapper {
             "</foreach> " +
             "</script>")
     int delRole(Integer[] ridArr);
+
+    @Select("SELECT sys_role.`name` FROM sys_user_role,sys_user,sys_role WHERE sys_user.id = sys_user_role.user_id AND sys_user_role.role_id = sys_role.id AND sys_user.id = #{uid} ")
+    String findRoleByUserId(Long uid);
 }
