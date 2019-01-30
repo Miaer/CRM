@@ -69,9 +69,9 @@
 </div>--%>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/demo/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.excheck-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.exedit-3.5.js"></script>
+<%--<script type="text/javascript" src="/js/demo/jquery.ztree.core-3.5.js"></script>--%>
+<%--<script type="text/javascript" src="/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="/js/jquery.ztree.exedit-3.5.js"></script>--%>
 <script src="/js/role.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-table.js"></script>

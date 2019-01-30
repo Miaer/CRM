@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+    <%--<link href="/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />--%>
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/info-mgt.css" />
     <style>
@@ -54,11 +54,27 @@
     </div>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/demo/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.excheck-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.exedit-3.5.js"></script>
 <script>
-    var sendID, sendName, zTree, nodes
+    function RoleSave() {
+        var RoleName = $("#RoleName").val();
+        $.ajax({
+            type: "POST",
+            url: '/role/addRole',
+            dataType: "json",
+            data: {name: RoleName},
+            success: function (result) {
+                if (result) {
+                    alert("保存成功");
+                    parent.location.href="/role/toRolePage";
+                    /* parent.getRoleTableData();
+                     checkCancel();*/
+                }
+            }
+        });
+    }
+</script>
+<script>
+   /* var sendID, sendName, zTree, nodes
     $(function () {
         Tree()
     })
@@ -102,33 +118,10 @@
     function onCheck(e, treeId, treeNode) {
         nodes = zTree.getCheckedNodes()
     };
-    function RoleSave() {
-        var RoleName = $("#RoleName").val();
-        /*for (var i = 1; i < nodes.length; i++) {
-            if (i == nodes.length - 1) {
-                v += nodes[i].MODULEID;
-            } else {
-                v += nodes[i].MODULEID + ",";
-            }
-        }*/
-        $.ajax({
-            type: "POST",
-            url: '/role/addRole',
-            dataType: "json",
-            data: {name: RoleName},
-            success: function (result) {
-                if (result) {
-                    alert("保存成功");
-                    parent.location.href="/role/toRolePage";
-                   /* parent.getRoleTableData();
-                    checkCancel();*/
-                }
-            }
-        });
-    }
+
     function checkCancel() {
         var index = parent.layer.getFrameIndex(window.name);
         parent.layer.close(index);
-    }
+    }*/
 </script>
 </html>

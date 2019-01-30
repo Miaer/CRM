@@ -65,7 +65,7 @@ public class CustromerServiceImpl implements CustromerService {
         int insert1 = userMapper.insert(user);
 
         String userId = user.getId().toString();
-        int insert = userRoleMapper.insert(userId, role);
+        int insert = userRoleMapper.insert(Long.valueOf(userId), role);
 
         if (insert > 0 && insert1 > 0){
             return true;

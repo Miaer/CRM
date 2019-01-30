@@ -106,9 +106,10 @@ public class UserController {
     }
 
     @RequestMapping("/updateUser")
-    public String updateUser(HttpServletRequest request){
+    @ResponseBody
+    public Boolean updateUser(HttpServletRequest request){
         Boolean aBoolean = userService.updateUserInfo(request);
-        return "";
+        return aBoolean;
     }
 
     @RequestMapping("/findRoleByUserId")
