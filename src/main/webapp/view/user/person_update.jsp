@@ -25,7 +25,6 @@
         <div class="top_out">
             <table class="table" >
                 <tbody>
-
                 <tr>
                     <td style="border-top: none" >用户名：<i class="i_start"></i></td>
                     <td  colspan = "6"  style="text-align: left;border-top: none">
@@ -59,20 +58,28 @@
     <div class="bot_btn">
         <input class="btn" type="submit" value="更新" onclick="eidt()"/>
         <button class="btn btn1"><a href="/view/user/person.jsp" target="right">返回</a></button>
-
     </div>
 </div>
 </form>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script src="/js/person.js"></script>
-<script >
+<script src="/js/date/js/laydate.js"></script>
+<script src="/js/layer_v2.1/layer/layer.js"></script>
+<script>
+    !function () {
+        laydate.skin('danlan');//切换皮肤，请查看skins下面皮肤库
+        laydate({ elem: '#demo' });//绑定元素
+        laydate({ elem: '#demo1' });
+        laydate({ elem: '#demo2' });//绑定元素
+    }();
+
     function eidt(){
         $.ajax({
             url: "/user/updateUser",
             type:"post",
             data:{
-                uid : getCurrentID(),
+                uid : parent.getCurrentID(),
                 userName : $("#recodeTit").val(),
                 role:$("#roleOption option:selected").val(),
                 password: $("#person").val(),
@@ -91,66 +98,11 @@
                         }
                     });
                 }
+                layer.msg("修改失败");
+                parent.location.reload();
             }
         });
 
     }
 </script>
-<script src="/js/date/js/laydate.js"></script>
-<script>
-    var PROJECTID, TASKTYPE, TASKPHASE,  PERSONID;
-    !function () {
-        laydate.skin('danlan');//切换皮肤，请查看skins下面皮肤库
-        laydate({ elem: '#demo' });//绑定元素
-        laydate({ elem: '#demo1' });
-        laydate({ elem: '#demo2' });//绑定元素
-    }();
-    function RecodeSave() {
-        var user = {
-            userName : $("#recodeTit").val(),
-            role:$("#roleOption option:selected").val(),
-            password: $("#person").val(),
-            againPassword: $("#againPerson").val(),
-            note: $("#note").val(),
-        };
-        $.ajax({
-            type: "POST",
-            url: "/customer/addCustomer",
-            data: {
-                name : $("#recodeTit").val(),
-                role:$("#roleOption option:selected").val(),
-                password: $("#person").val(),
-                againPassword: $("#againPerson").val(),
-                note: $("#note").val(),
-            },
-            dataType: "json",
-            success: function (result) {
-                if (result) {
-                    alert("保存成功！！！");
-                    parent.location.href="/view/user/person.jsp";
-                } else {
-                    alert("保存失败！！！");
-                }
-            }
-        })
-    }
-    function TaskCancel() {
-        var index = parent.layer.getFrameIndex(window.name);
-        parent.layer.close(index);
-    }
-
-    //时间格式化函数
-    function getFormatTime(time) {
-        var time = new Date(parseInt(time));
-        var y = time.getFullYear();
-        var m = time.getMonth() + 1;
-        var d = time.getDate();
-        var h = time.getHours();
-        var mm = time.getMinutes();
-        var s = time.getSeconds();
-        return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
-    }
-    function add0(m) { return m < 10 ? '0' + m : m }
-</script>
-
 </html>

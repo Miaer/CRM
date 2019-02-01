@@ -17,7 +17,6 @@
 </head>
 
 <body style="border-radius: 8px" onload="change()">
-<!--<div class="title"><h2>通知详情</h2></div>-->
 <form id="form_demo">
 <div class="top">
     <div>
@@ -104,9 +103,6 @@
                 }
             }
         });
-
-
-        /*parent.location.reload();*/
     }
 </script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>

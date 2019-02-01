@@ -21,11 +21,11 @@ function Personload() {
             {
                 checkbox:"true"
             },
-            {
+            /*{
                 title: "用户id",
                 field: 'uid',
                 align: 'center',
-            },
+            },*/
             {
                 title: "用户名",
                 field: 'name',
@@ -96,6 +96,12 @@ function del(id) {
         return row ;
     });
 
+    if (row.length == 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
+
     for(var i=0;i<row.length;i++){
         uidArr[i] = row[i].uid;
     }
@@ -112,11 +118,6 @@ function del(id) {
         dataType: 'json',
         success: function (data) {
             if (data) {
-                /*layer.open({
-                    type:1,
-                    content:"删除成功",
-                    time:3000
-                });*/
                 alert("删除成功");
                 getData();
             } else {
@@ -133,7 +134,7 @@ function getCurrentID() {
 function openlayer(id){
     layer.open({
         type: 2,
-        title: '添加信息',
+        title: '添加用户',
         shadeClose: true,
         shade: 0.5,
         skin: 'layui-layer-rim',
@@ -142,7 +143,7 @@ function openlayer(id){
         area: ['80%', '90%'],
         shadeClose: true,
         closeBtn: 2,
-        content: '/customer/toAdd?'
+        content: '/customer/toAdd'
         //iframe的url
     });
 }

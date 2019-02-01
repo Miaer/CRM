@@ -30,13 +30,13 @@
 <body onload="change(),Roleload()">
 <div class="title"><h2>角色管理</h2></div>
 <div class="l_left" style="width: 100%;margin-right: 1%">
-<div class="query">
+<%--<div class="query">
     <div class="tabe_bot">
         <div class="l_left" style="margin-left: 20px"><label>角色名称：</label><input type="text" placeholder="请输入角色名称" id="name"></div>
         <button class="tabe_btn " onclick="getRoleTableData()">查询</button>
         <div class="clear"></div>
     </div>
-</div>
+</div>--%>
 <div class="table-operate ue-clear">
     <a href="javascript:;" class="add" onclick="openlayer()" >添加</a>
     <a href="javascript:;" class="del" onclick="delRole(id)">删除</a>
@@ -69,17 +69,18 @@
 </div>--%>
 </body>
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/demo/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.excheck-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.exedit-3.5.js"></script>
+<%--<script type="text/javascript" src="/js/demo/jquery.ztree.core-3.5.js"></script>--%>
+<%--<script type="text/javascript" src="/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="/js/jquery.ztree.exedit-3.5.js"></script>--%>
 <script src="/js/role.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-table.js"></script>
 <script src="/js/bootstrap-table-zh-CN.min.js"></script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>
 <script>
+    /*
     $(document).ready(function(){
-        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        $.fn.zTree.init($("#treeDemo"), setting, /!*zNodes*!/);
         zTree = $.fn.zTree.getZTreeObj("treeDemo");
         zTree.expandAll(false);
         var node0 = zTree.getNodeByTId("1");
@@ -95,5 +96,6 @@
         zTree.expandNode(node3, true, true, true);
         rMenu = $("#rMenu");
     });
+    */
 </script>
 </html>

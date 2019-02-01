@@ -1,7 +1,7 @@
 package com.springboot.service.impl;
 
 import com.springboot.constant.Constant;
-import com.springboot.dao.CustromerMapper;
+import com.springboot.dao.CustomerMapper;
 import com.springboot.dao.SysUserMapper;
 import com.springboot.dao.UserRoleMapper;
 import com.springboot.dao.VisitMapper;
@@ -28,7 +28,7 @@ public class CustromerServiceImpl implements CustromerService {
     private UserRoleMapper userRoleMapper;
 
     @Autowired
-    private CustromerMapper custromerMapper;
+    private CustomerMapper customerMapper;
 
     @Autowired
     private VisitMapper visitMapper;
@@ -65,7 +65,7 @@ public class CustromerServiceImpl implements CustromerService {
         int insert1 = userMapper.insert(user);
 
         String userId = user.getId().toString();
-        int insert = userRoleMapper.insert(userId, role);
+        int insert = userRoleMapper.insert(Long.valueOf(userId), role);
 
         if (insert > 0 && insert1 > 0){
             return true;
@@ -77,14 +77,14 @@ public class CustromerServiceImpl implements CustromerService {
     public List<Map<String, String>> findCustomerAllBySessionUId(HttpServletRequest request,String customName,String time) {
         Long uid1 = (Long) request.getSession().getAttribute("uid");
         Integer uid = uid1.intValue();
-        return custromerMapper.findCustomerAllBySessionUId(uid,customName,time);
+        return customerMapper.findCustomerAllBySessionUId(uid,customName,time);
     }
 
     @Override
     @Transactional
     public int insertCustomerByCustomer(Customer customer) {
         customer.setCreateTime(Constant.SYS_DATA);
-        int i = custromerMapper.insertCustomerByCustomer(customer);
+        int i = customerMapper.insertCustomerByCustomer(customer);
         return i;
     }
 
@@ -97,22 +97,22 @@ public class CustromerServiceImpl implements CustromerService {
         map.put("cusArr",cusArr);
         map.put("uid",uid);
 
-        int i = custromerMapper.delCustomers(map);
+        int i = customerMapper.delCustomers(map);
         return i > 0 ? true : false;
     }
 
     @Override
-    public Map<String, String> findCustomerById(Integer id) {
-        return custromerMapper.findCustomerById(id);
+    public Map<String, Object> findCustomerById(Integer id) {
+        return customerMapper.findCustomerById(id);
     }
 
     @Override
     public List<Customer> findCustomerByUserId(Long uid) {
-        return custromerMapper.findCustomerByUserId(uid);
+        return customerMapper.findCustomerByUserId(uid);
     }
 
     @Override
     public Map<String, String> findCustomerByVisitId(Integer id) {
-        return custromerMapper.findCustomerByVisitId(id);
+        return customerMapper.findCustomerByVisitId(id);
     }
 }

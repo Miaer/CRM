@@ -24,7 +24,7 @@ public interface CustromerService {
 
     Boolean delCustomer(Integer[] cusArr,HttpServletRequest request);
 
-    Map<String, String> findCustomerById(Integer id);
+    Map<String, Object> findCustomerById(Integer id);
 
     List<Customer> findCustomerByUserId(Long uid);
 

@@ -14,23 +14,23 @@
         .tabe_bot input,.tabe_bot  select{width: 180px;height: 30px;border-radius: 6px;margin:0 20px 0 0;border: none;border: 1px #ccc solid}
         .tabe_btn{width: 60px;height: 30px;background-color: #68b86c;border: none;border-radius: 6px;color: #fff}
     </style>
-    <title>项目管理</title>
+    <title>项目信息</title>
 </head>
 
 <body onload="Recodeload()">
-<div class="title"><h2>项目管理</h2></div>
-<div class="query">
+<div class="title"><h2>项目信息</h2></div>
+<%--<div class="query">
     <div class="tabe_bot">
-        <div class="l_left"><label>任务名称：</label><input type="text" placeholder="请输入名称" id="name"></div>
+        <div class="l_left"><label>项目名称：</label><input type="text" placeholder="请输入名称" id="name"></div>
         <div class="l_left"><label>发布人：</label><input type="text" placeholder="请输入姓名" id="person"></div>
-        <div class="l_left"><label>发布时间：</label><input id="demo" placeholder="输入年月" /></div>
+        <div class="l_left"><label>发布时间：</label><input id="time" placeholder="输入年月" /></div>
         <button class="tabe_btn " onclick="getRecodeTableData()">查询</button>
         <div class="clear"></div>
     </div>
-</div>
+</div>--%>
 <div class="table-operate ue-clear">
     <a href="#" class="add"  onclick="addRecode()">添加</a>
-    <a href="javascript:;" class="del">删除</a>
+    <%--<a href="javascript:;" class="del">删除</a>--%>
 
     <!--<a href="javascript:;" class="count">统计</a>-->
     <!--<a href="javascript:;" class="check">审核</a>-->

@@ -33,16 +33,16 @@
                 <tr>
                     <td style="border-top: none" >预约时间<i class="i_start"></i></td>
                     <td class="l_left" colspan = "6"  style="text-align: left;border-top: none">
-                        <input id="time" placeholder="输入年月" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"/>
+                        <input id="time" placeholder="输入年月" value="${visitMap.visit_time}" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"/>
                     </td>
                 </tr>
                 <tr>
                     <td style="line-height: 220px">洽谈事宜：</td>
-                    <td colspan = "5" style="text-align: left"><textarea  id="arrangements" name="memo" style="width: 100%;height: 220px"></textarea></td>
+                    <td colspan = "5" style="text-align: left"><textarea  id="arrangements" name="memo" style="width: 100%;height: 220px">${visitMap.visit_matters}</textarea></td>
                 </tr>
                 <tr>
                     <td style="line-height: 220px">备注：</td>
-                    <td colspan = "5" style="text-align: left"><textarea  id="note" name="memo" style="width: 100%;height: 220px"></textarea></td>
+                    <td colspan = "5" style="text-align: left"><textarea  id="note" name="memo" style="width: 100%;height: 220px">${visitMap.visit_memo}</textarea></td>
                 </tr>
                 </tbody>
             </table>
@@ -50,11 +50,11 @@
     </div>
     <div class="bot_btn">
         <input class="btn" onclick="submit()" value="预约"/>
-        <button class="btn btn1"><a onclick="layer.close(index)" target="right">返回</a></button>
+        <button class="btn btn1"><a onclick="layerClose()" target="right">返回</a></button>
     </div>
 </div>
 </body>
-
+<script src="/js/schedule.js"></script>
 <script >
     function submit(){
         var visitId = ${visitMap.visit_id};
@@ -109,14 +109,13 @@
                 dataType: 'json',
                 success: function (result) {
                     if (result != null) {
-                        $("#tit").append("<option value='"+result.customer_id+"'>"+result.company_name+"</option>");
+                       /* $("#tit").append("<option value='"+result.customer_id+"'>"+result.company_name+"</option>");
                         //格式化时间格式
                         var dateee = new Date(result.visit_time).toJSON();
                         var visit_time = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
-
-                        $("#time").val(visit_time);
-                        $("#arrangements").val(result.visit_matters);
-                        $("#note").val(result.visit_memo);
+                        $("#time").val(visit_time);*/
+                       /* $("#arrangements").val(result.visit_matters);
+                        $("#note").val(result.visit_memo);*/
                     }
                     else {
                         alert("获取失败！");

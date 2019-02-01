@@ -102,9 +102,6 @@
     var PROJECTID, TASKTYPE, TASKPHASE,  PERSONID;
     !function(){
         laydate.skin('yalan');//切换皮肤，请查看skins下面皮肤库
-        /*laydate({
-            elem: '#arrangementstime'},
-        );//绑定元素*/
     }();
 
     function init() {

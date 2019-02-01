@@ -44,7 +44,7 @@ public class VisitController {
     @RequestMapping("/findVisitById")
     @ResponseBody
     public Object findVisitById(Integer id){
-        Map<String, String> visit = custromerService.findCustomerById(id);
+        Map<String, Object> visit = custromerService.findCustomerById(id);
         return visit;
     }
 
@@ -89,12 +89,33 @@ public class VisitController {
         return "customer/schedule";
     }
 
+    @RequestMapping("/findCustomer")
+    @ResponseBody
+    public Object findCustomer(HttpServletRequest request, Model model){
+        /*
+            查询出当前用户的客户信息，以供用户=选择预约哪个客户
+         */
+        Object uid = request.getSession().getAttribute("uid");
+        List<Customer> customerByUserId = custromerService.findCustomerByUserId((Long) uid);
+        model.addAttribute("customerList",customerByUserId);
+        System.out.println(customerByUserId);
+        return customerByUserId;
+    }
+
     @RequestMapping("/toUpdataSchedule")
     public String toUpdataSchedule(Model model,Integer visitId){
         Map<String, String> visitMap = visitService.findVisitByOneId(visitId);
         System.out.println(visitMap);
         model.addAttribute("visitMap",visitMap);
         return "work/update_schedule";
+    }
+
+    @RequestMapping("/initLookSchedule")
+    public String initLookSchedule(Model model,Integer visitId){
+        Map<String, String> visitMap = visitService.findVisitByOneId(visitId);
+        System.out.println(visitMap);
+        model.addAttribute("visitMap",visitMap);
+        return "work/look";
     }
 
     @RequestMapping("/updateVisit")
@@ -112,6 +133,17 @@ public class VisitController {
     @ResponseBody
     public Boolean scheduleComplete(Integer id){
         Boolean aBoolean = visitService.updateCheduleState(id);
+        return aBoolean;
+    }
+
+    /**
+     * 添加拜访记录控制器
+     */
+    @RequestMapping("/addVisitRecords")
+    @ResponseBody
+    public Boolean addVisitRecords(Visit visit){
+        Boolean aBoolean = visitService.addVisitRecords(visit);
+
         return aBoolean;
     }
 }

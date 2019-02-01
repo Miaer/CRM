@@ -1,8 +1,39 @@
-/**
- * Created by Administrator on 2016/8/4.
- */
 
-var recodeTitle, Publisher, currentID, recodeTime, flag = true;
+/*
+*   visit:
+*   [{customer_type=2, person_phone2=null, memo=, person_positoin=, visit_matters=3否认43呱呱呱呱呱呱呱呱呱呱呱呱呱呱呱古古怪怪呱呱呱呱呱呱呱呱呱呱呱呱呱呱呱古古怪怪呱呱呱呱呱呱呱呱呱呱呱呱呱呱呱古古怪怪呱呱呱呱呱呱呱呱呱呱呱呱呱呱呱古古怪怪呱呱呱呱呱呱呱呱呱呱呱呱呱呱呱古古怪怪钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱钱呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃额          呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃, major_business=null, visit_memo=呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃, identification=null, home_address=null, company_alias=null, prejudice=null, id=163, person_company=null, visit_complete_time=2019-01-28 16:55:55.0, area=null, address=, create_time=2019-01-28 10:05:56.0, visit_time=2019-01-25 00:00:00.0, person_phone=, person_name=, user_id=103, company_name=marry, name=个人渠道, assert_volumn=null, visit_id=70, customer_id=163, chedule_state=1}, {customer_type=2, person_phone2=null, memo=, person_positoin=, visit_matters=是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶
+    是法国顶顶顶顶顶d顶顶顶顶顶顶顶顶顶顶顶顶, major_business=null, visit_memo=, identification=null, home_address=null, company_alias=null, prejudice=null, id=163, person_company=null, visit_complete_time=2019-01-28 10:05:56.0, area=null, address=, create_time=2019-01-28 10:05:56.0, visit_time=2019-01-17 00:00:00.0, person_phone=, person_name=, user_id=103, company_name=marry, name=个人渠道, assert_volumn=null, visit_id=68, customer_id=163, chedule_state=1}, {customer_type=2, person_phone2=null, memo=, person_positoin=, visit_matters=啦啦啦, major_business=null, visit_memo=急急急, identification=null, home_address=null, company_alias=null, prejudice=null, id=163, person_company=null, visit_complete_time=2019-01-28 10:05:56.0, area=null, address=, create_time=2019-01-28 10:05:56.0, visit_time=2019-01-09 00:00:00.0, person_phone=, person_name=, user_id=103, company_name=marry, name=个人渠道, assert_volumn=null, visit_id=67, customer_id=163, chedule_state=1}]
+
+*
+*
+* */
+var visit, currentID,flag = true;
+/**
+ * 查看拜访客户的信息
+ * @param id
+ */
+function detail(id) {
+    currentID = id;
+    //墨绿深蓝风
+    var index =  layer.open({
+        type: 2,
+        title: '拜访记录信息',
+        shadeClose: true,
+        shade: 0.5,
+        skin: 'layui-layer-rim',
+        closeBtn: 2,
+        area: ['80%', '80%'],
+        /*content: '/view/work/detail.jsp'*/
+        content:'/visit/initLookSchedule?visitId='+id
+    });
+}
+
+
 function Recodeload() {
     $(function () {
         $('#table').bootstrapTable({
@@ -16,22 +47,23 @@ function Recodeload() {
             search: false, //显示搜索框
             contentType: "application/x-www-form-urlencoded",
             queryParams: null,
-            uniqueId:"id",
+            uniqueId:"id",      // 表明每行唯一的标识符
             columns: [
                 {
-                    checkbox:"false",
+                    checkbox:"false"
                 },
                 {
                     title: "客户id",
                     field: 'id',
                     align: 'center',
-                    visible:false,
+                    visible:false
                 },
                 {
                     title: "预约记录id",
                     field: 'visit_id',
                     align: 'center',
-                    visible:false,
+                    visible:false
+
                 },
                 {
                     title: "拜访完成日期",
@@ -44,7 +76,7 @@ function Recodeload() {
                 {
                     title: '拜访客户',
                     field: 'company_name',
-                    align: 'center',
+                    align: 'center'
                 },
                 {
                     title: '联系人',
@@ -54,12 +86,12 @@ function Recodeload() {
                 {
                     title: '所属类别',
                     field: 'name',
-                    align: 'center',
+                    align: 'center'
                 },
                 {
                     title: '职务',
                     field: 'person_positoin',
-                    align: 'center',
+                    align: 'center'
                 },
                 {
                     title: '地址',
@@ -81,13 +113,13 @@ function Recodeload() {
                     field: 'visit_memo',
                     align: 'center'
                 },
-                /*{
+                {
                     title: '操作',
                     formatter: function (value, row) {
-                        var e = '<button button="#" mce_href="#" onclick="editRecode(\'' + row.id + '\')">查看</button> ';
+                        var e = '<button button="#" mce_href="#" onclick="detail(\'' + row.visit_id + '\')">查看</button> ';
                         return e;
                     }
-                }*/
+                }
             ]
         });
     });
@@ -107,11 +139,13 @@ function getRecodeTableData() {
         url: "/visit/findVisitAll?completeTime="+completeTime+"&companyName="+companyName,
         dataType: "json",
         success: function (data) {
+            visit = data;
             if (data.length > 0) {
                 layer.msg("正在加载",{
                     icon:4,
                     time: 800 //1.5秒关闭（如果不配置，默认是3秒）
                 },function () {
+
                     $('#table').bootstrapTable("load", data);
                 });
             }else {
@@ -123,33 +157,22 @@ function getRecodeTableData() {
     })
 }
 
-function editRecode(id) {
-    openlayer();
-    currentID = id;
+
+
+function  getVisit() {
+    return visit;
 }
-function outRecode(id) {
-    alert(id)
-    var RecodeId = id;
-    $.ajax({
-        url: '../WorkRecord/DeleteWork?workId=' + RecodeId,
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            if (data.data) {
-                alert("下载成功！")
-                // getRecodeTableData();
-            } else {
-                alert("下载失败")
-            }
-        },
-        error: function (err) {
-        }
-    });
+
+/**
+ * 添加拜访记录
+ */
+function addVisit() {
+    openAddlayer();
 }
 function getCurrentID() {
     return currentID;
 }
-function openlayer() {
+function openAddlayer() {
     layer.open({
         type: 2,
         title: '拜访客户',
@@ -158,11 +181,8 @@ function openlayer() {
         skin: 'layui-layer-rim',
         closeBtn: 2,
         area: ['98%', '98%'],
-        shadeClose: true,
-        closeBtn: 2,
-        content:"visit_tail.jsp"
+        content:"/view/work/visit_tail.jsp"
     });
-    
 }
 
 function delVisit() {
@@ -173,6 +193,12 @@ function delVisit() {
     var row = $.map($("#table").bootstrapTable('getSelections'),function(row){
         return row ;
     });
+
+    if (row.length == 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
 
     for(var i=0;i<row.length;i++){
         visitArr[i] = row[i].visit_id;

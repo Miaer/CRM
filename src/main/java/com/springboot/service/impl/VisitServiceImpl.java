@@ -31,10 +31,6 @@ public class VisitServiceImpl implements VisitService {
         return visitMapper.findVisitById(id);
     }
 
-    /*@Override
-    public int insertVisit(Integer id) {
-        return visitMapper.insertVisit(id);
-    }*/
 
     @Override
     public int addVisit(Visit visit) {
@@ -69,6 +65,22 @@ public class VisitServiceImpl implements VisitService {
     public Boolean updateCheduleState(Integer id) {
         Timestamp visitCompleteTime = Constant.SYS_DATA;
         int i = visitMapper.updateCheduleState(id, visitCompleteTime);
+        if (i > 0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 添加拜访记录
+     * @param visit 实体
+     * @return Boolean 是否成功
+     */
+    @Override
+    public Boolean addVisitRecords(Visit visit) {
+        visit.setCheduleState(String.valueOf(1));
+        visit.setVisitCompleteTime(new Timestamp(visit.getVisitCompleteTime().getTime()));
+        int i = visitMapper.addVisit(visit);
         if (i > 0){
             return true;
         }

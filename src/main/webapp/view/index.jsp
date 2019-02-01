@@ -45,6 +45,14 @@
                             </a>
                         </div>
                     </li>--%>
+                    <li class="email">
+                        <div class="nav-header">
+                            <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
+                                <span>客户管理</span>
+                                <i class="icon"></i>
+                            </a>
+                        </div>
+                    </li>
                     <li class="land">
                         <div class="nav-header">
                             <a href="JavaScript:;" class="ue-clear" >
@@ -72,13 +80,13 @@
                             <li><a href="train.html" target="right">培训管理</a></li>
                         </ul>
                     </li>--%>
-                    <li class="email">
-                        <div class="nav-header">
-                            <a href="/customer/toCustomerPage"class="ue-clear"  target="right">
-                                <span>客户管理</span>
-                                <i class="icon"></i>
-                            </a>
-                        </div>
+
+                    <li class="list_m" id="disappear1">
+                        <div class="nav-header" >
+                        <a href="/view/project/project.jsp" class="ue-clear" target="right">
+                        <span>项目管理</span>
+                            <i class="icon"></i>
+                        </a></div>
                     </li>
                     <li class="list_m">
                         <div class="nav-header">
@@ -137,20 +145,17 @@
 <script type="text/javascript" src="/js/jquery.dialog.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>
-<script type="text/javascript">
-    function openlayer(id){
-        layer.open({
-            type: 2,
-            title: '修改密码',
-            shadeClose: false,
-            shade: 0.5,
-            skin: 'layui-layer-rim',
-//            maxmin: true,
-            closeBtn:2,
-            area: ['35%', '40%'],
-            content: 'password.html'
-            //iframe的url
-        });
-    }
+<script>
+     $(function () {
+         $.ajax({
+             url:"/user/findRoleByUserId",
+             success:function (data) {
+                 if (data == "理财师"){
+                    $("#disappear").css('visibility','hidden');
+                    $("#disappear1").css('visibility','hidden');
+                 }
+             }
+         });
+     });
 </script>
 </html>

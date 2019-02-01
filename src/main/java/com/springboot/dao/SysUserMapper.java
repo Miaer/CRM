@@ -32,4 +32,7 @@ public interface SysUserMapper {
 
     @UpdateProvider(type = UserReovider.class,method = "updateUser")
     int updateUserInfo(SysUser user);
+
+    @Select("SELECT sys_user.* FROM sys_user,sys_role,sys_user_role WHERE sys_user.id = sys_user_role.user_id AND sys_role.id = sys_user_role.role_id AND sys_role.`name` = '理财师'")
+    List<SysUser> findAllUser();
 }
