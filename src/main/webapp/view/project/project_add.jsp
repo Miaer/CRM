@@ -93,7 +93,7 @@
             type: "POST",
             url: "/project/addProject",
             traditional:true,
-            data: { projectname : $("#projectName").val() }
+            data: { projectname : $("#projectName").val() },
             dataType: 'json',
             success: function (result) {
                 if (result) {
