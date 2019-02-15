@@ -2,15 +2,33 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="/css/base.css" />
-<link rel="stylesheet" href="/css/home.css" />
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">-->
-    <link href="/css/bootstrap-table.css" rel="stylesheet" type="text/css">
-<title>移动办公自动化系统</title>
+    <meta charset="utf-8">
+    <%--<link rel="stylesheet" href="/css/base.css" />--%>
+    <%--<link rel="stylesheet" href="/css/home.css" />--%>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/temp.css">
+    <%--<link href="../../css/bootstrap-table.css">--%>
+    <title>移动办公自动化系统</title>
+    <style>
+        .bg-type1{
+            background: linear-gradient(90deg, rgb(180,240,255) 0%,white 100%);
+            /*background-position: 100% 100%;*/
+            background-position: 0 0;
+            background-size: 200%,100%;
+            animation: changebg 3s linear infinite alternate;
+        }
+        @keyframes changebg{
+            0%{background-position: 0 0;}
+            100%{background-position: 100% 0;}
+        }
+    </style>
 </head>
 
 <body>
+<div class="h-100 d-flex justify-content-center pb-5 bg-type1">
+    <h3 class="align-self-center text-info">欢迎来到橙叶 CRM 系统</h3>
+</div>
+
 <%--<div class="article toolbar">
 	<div class="title ue-clear">
     	<h2>常用功能</h2>
@@ -66,7 +84,7 @@
             	<img src="/images/add.png" />
             </li>
     	</ul>
-        
+
     </div>
 </div>
 <div class="article half notice">
@@ -289,92 +307,89 @@
     </div>
 </div>--%>
 
-
-
-<h1 class="color:red" style="color: #00a2d4">欢迎来到橙叶管理系统</h1>
 </body>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/bootstrap-table.js"></script>
-<script src="/js/bootstrap-table-zh-CN.min.js"></script>
-<script>
-    $(function () {
-        $('#table').bootstrapTable({
-            method: "get",
-            striped: true,
-            singleSelect: false,
-            url: "json/person.json",
-            dataType: "json",
-            pagination: true, //分页
-            pageSize: 10,
-            pageNumber: 1,
-            search: false, //显示搜索框
-            contentType: "application/x-www-form-urlencoded",
-            queryParams: null,
-            columns: [
-                {
-                    title: "任务名称",
-                    field: 'name',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    title: '完成日期',
-                    field: 'sex',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    title: '发布人',
-                    field: 'type',
-                    align: 'center'
-                },
+<%--<script type="text/javascript" src="/js/jquery.js"></script>--%>
+<%--<script src="/js/bootstrap.min.js"></script>--%>
+<%--<script src="/js/bootstrap-table.js"></script>--%>
+<%--<script src="/js/bootstrap-table-zh-CN.min.js"></script>--%>
+<%--<script>--%>
+<%--$(function () {--%>
+<%--$('#table').bootstrapTable({--%>
+<%--method: "get",--%>
+<%--striped: true,--%>
+<%--singleSelect: false,--%>
+<%--url: "json/person.json",--%>
+<%--dataType: "json",--%>
+<%--pagination: true, //分页--%>
+<%--pageSize: 10,--%>
+<%--pageNumber: 1,--%>
+<%--search: false, //显示搜索框--%>
+<%--contentType: "application/x-www-form-urlencoded",--%>
+<%--queryParams: null,--%>
+<%--columns: [--%>
+<%--{--%>
+<%--title: "任务名称",--%>
+<%--field: 'name',--%>
+<%--align: 'center',--%>
+<%--valign: 'middle'--%>
+<%--},--%>
+<%--{--%>
+<%--title: '完成日期',--%>
+<%--field: 'sex',--%>
+<%--align: 'center',--%>
+<%--valign: 'middle'--%>
+<%--},--%>
+<%--{--%>
+<%--title: '发布人',--%>
+<%--field: 'type',--%>
+<%--align: 'center'--%>
+<%--},--%>
 
-                {
-                    title: '备注',
-                    field: 'class',
-                    align: 'center'
-                },
-                {
-                    title: '操作',
-                    field: 'id',
-                    align: 'center',
-                    formatter: function (value, row) {
-                        var e = '<a  href="#" onclick="openlayer(\'' + row.id + '\')">查看</a> ';
-                        return e;
-                    }
-                }
-            ]
-        });
-    })
-</script>
-<script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript">
-$(".title-list ul").on("click","li",function(){
-	var aIndex = $(this).index();
-	$(this).addClass("current").siblings().removeClass("current");
-	$(".matter-content").removeClass("current").eq(aIndex).addClass("current");
-});
+<%--{--%>
+<%--title: '备注',--%>
+<%--field: 'class',--%>
+<%--align: 'center'--%>
+<%--},--%>
+<%--{--%>
+<%--title: '操作',--%>
+<%--field: 'id',--%>
+<%--align: 'center',--%>
+<%--formatter: function (value, row) {--%>
+<%--var e = '<a  href="#" onclick="openlayer(\'' + row.id + '\')">查看</a> ';--%>
+<%--return e;--%>
+<%--}--%>
+<%--}--%>
+<%--]--%>
+<%--});--%>
+<%--})--%>
+<%--</script>--%>
+<%--<script type="text/javascript" src="/js/common.js"></script>--%>
+<%--<script type="text/javascript">--%>
+<%--$(".title-list ul").on("click","li",function(){--%>
+<%--var aIndex = $(this).index();--%>
+<%--$(this).addClass("current").siblings().removeClass("current");--%>
+<%--$(".matter-content").removeClass("current").eq(aIndex).addClass("current");--%>
+<%--});--%>
 
-$(".duty").find("tbody").find("tr:even").css("backgroundColor","#eff6fa");
-</script>
-<script src="/js/layer_v2.1/layer/layer.js"></script>
-<script type="text/javascript">
-    function openlayer(id){
-        layer.open({
-            type: 2,
-            title: '万年历',
-            shadeClose: true,
-            shade: 0.5,
-            skin: 'layui-layer-rim',
-//            maxmin: true,
-            closeBtn:2,
-            area: ['80%', '75%'],
-            shadeClose: true,
-            closeBtn: 2,
-            content: 'calendar.html'
-            //iframe的url
-        });
-    }
-</script>
+<%--$(".duty").find("tbody").find("tr:even").css("backgroundColor","#eff6fa");--%>
+<%--</script>--%>
+<%--<script src="/js/layer_v2.1/layer/layer.js"></script>--%>
+<%--<script type="text/javascript">--%>
+<%--function openlayer(id){--%>
+<%--layer.open({--%>
+<%--type: 2,--%>
+<%--title: '万年历',--%>
+<%--shadeClose: true,--%>
+<%--shade: 0.5,--%>
+<%--skin: 'layui-layer-rim',--%>
+<%--//            maxmin: true,--%>
+<%--closeBtn:2,--%>
+<%--area: ['80%', '75%'],--%>
+<%--shadeClose: true,--%>
+<%--closeBtn: 2,--%>
+<%--content: 'calendar.html'--%>
+<%--//iframe的url--%>
+<%--});--%>
+<%--}--%>
+<%--</script>--%>
 </html>
