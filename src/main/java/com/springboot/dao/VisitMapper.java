@@ -51,9 +51,12 @@ public interface VisitMapper {
             "<if test='scheduleTime != \"\" and scheduleTime != null'>" +
             "   AND POSITION(#{scheduleTime} in visit.visit_time)" +
             "</if> " +
+            "<if test='customName != \"\" and customName != null'>" +
+            "   AND POSITION(#{customName} in customer.company_name)" +
+            "</if>" +
             "Order By visit.visit_time DESC"+
             "</script>")
-    List<Map<String, String>> findVisitStateIsChedule(@Param("uid") Long uid,@Param("scheduleTime") String scheduleTime);
+    List<Map<String, String>> findVisitStateIsChedule(@Param("uid") Long uid,@Param("scheduleTime") String scheduleTime,@Param("customName") String customName);
 
     @Delete("<script> delete from visit where visit_id in " +
             "<foreach collection='array' open='(' item='item' separator=',' close=')'>" +

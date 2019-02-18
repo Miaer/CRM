@@ -45,8 +45,8 @@ public class CustomerController {
      */
     @RequestMapping("/getCustomer")
     @ResponseBody
-    public Object getCustomer(){
-        List<Map<String, String>> custromer = custromerService.getCustromer();
+    public Object getCustomer(HttpServletRequest request){
+        List<Map<String, String>> custromer = custromerService.getCustromer(request);
         return custromer;
     }
 

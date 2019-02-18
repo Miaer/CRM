@@ -14,7 +14,7 @@ public interface VisitService {
 
     int addVisit(Visit visits);
 
-    List<Map<String,String>> findVisitStateIsChedule(HttpServletRequest request,String scheduleTime);
+    List<Map<String,String>> findVisitStateIsChedule(HttpServletRequest request);
 
     Boolean delVisitByIds(Integer[] visitArr);
 

@@ -34,8 +34,10 @@ public class CustromerServiceImpl implements CustromerService {
     private VisitMapper visitMapper;
 
     @Override
-    public List<Map<String, String>> getCustromer() {
-        return userMapper.getCustromer();
+    public List<Map<String, String>> getCustromer(HttpServletRequest request) {
+        String user = request.getParameter("user");
+        String role = request.getParameter("role");
+        return userMapper.getCustromer(user,role);
     }
 
     @Override

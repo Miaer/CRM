@@ -65,8 +65,8 @@ public class VisitController {
 
     @RequestMapping("/findVisitStateIsChedule")
     @ResponseBody
-    public Object findVisitStateIsChedule(HttpServletRequest request,String scheduleTime){
-        List<Map<String, String>> visitStateIsChedule = visitService.findVisitStateIsChedule(request,scheduleTime);
+    public Object findVisitStateIsChedule(HttpServletRequest request){
+        List<Map<String, String>> visitStateIsChedule = visitService.findVisitStateIsChedule(request);
         System.out.println(visitStateIsChedule);
         return visitStateIsChedule;
     }

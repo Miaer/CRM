@@ -40,9 +40,11 @@ public class VisitServiceImpl implements VisitService {
     }
 
     @Override
-    public List<Map<String, String>> findVisitStateIsChedule(HttpServletRequest request,String scheduleTime) {
+    public List<Map<String, String>> findVisitStateIsChedule(HttpServletRequest request) {
         Object uid = request.getSession().getAttribute("uid");
-        return visitMapper.findVisitStateIsChedule((Long) uid,scheduleTime);
+        String scheduleTime = request.getParameter("scheduleTime");
+        String customName = request.getParameter("customName");
+        return visitMapper.findVisitStateIsChedule((Long) uid,scheduleTime,customName);
     }
 
     @Override

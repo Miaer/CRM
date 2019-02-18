@@ -88,14 +88,16 @@ function scheduleload() {
 }
 function getScheduleTableData() {
     if (flag) {
+        customName= "";
         scheduleTime = "";
         flag = false;
     } else {
+        customName = $("#tit").val();
         scheduleTime = $("#demo").val();
     }
     $.ajax({
         type: "post",
-        url: "/visit/findVisitStateIsChedule?scheduleTime="+scheduleTime,
+        url: "/visit/findVisitStateIsChedule?scheduleTime="+scheduleTime + "&customName="+customName,
         dataType: "json",
         success: function (data) {
             if (data.length > 0) {

@@ -68,8 +68,8 @@ function getData() {
         role = $("#role").val();
     }
     $.ajax({
-        type: "GET",
-        url: "/customer/getCustomer",
+        type:"POST",
+        url: "/customer/getCustomer?user="+user+"&role="+role,
         dataType: "json",
         success: function (result) {
             if (result.length > 0) {

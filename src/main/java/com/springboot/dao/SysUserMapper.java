@@ -17,8 +17,16 @@ public interface SysUserMapper {
     @Select("select * from sys_user where name = #{name}")
     SysUser findAllByName(String name);
 
-    @Select("select su.id 'uid',su.name,sr.id 'rid',sr.name 'rname',su.create_date 'createDate' from sys_user_role sur left join sys_user su on sur.user_id = su.id left join sys_role sr on sur.role_id = sr.id WHERE su.`name` is not null")
-    List<Map<String,String>> getCustromer();
+    @Select("<script>"+
+            "select su.id 'uid',su.name,sr.id 'rid',sr.name 'rname',su.create_date 'createDate' from sys_user_role sur left join sys_user su on sur.user_id = su.id left join sys_role sr on sur.role_id = sr.id WHERE su.`name` is not null " +
+            "<if test='user != \"\" and user != null'>" +
+            "   AND su.`name` = #{user}" +
+            "</if> " +
+            "<if test='role != \"\" and role != null'>" +
+            "   AND sr.id = #{role}" +
+            "</if>" +
+            "</script>")
+    List<Map<String,String>> getCustromer(@Param("user") String user,@Param("role") String role);
 
     @Delete("<script> delete from sys_user where id in " +
                 "<foreach collection='array' open='(' item='item' separator=',' close=')'>" +

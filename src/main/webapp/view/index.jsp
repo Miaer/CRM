@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/css/jquery.dialog.css" />
 <link rel="stylesheet" href="/css/index.css" />
-    <style>
+    <%--<style>
         .layui-layer-title{background:url(/images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
-    </style>
+    </style>--%>
 <title>橙叶管理系统</title>
 </head>
 <body>

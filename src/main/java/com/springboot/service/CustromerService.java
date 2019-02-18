@@ -14,7 +14,7 @@ public interface CustromerService {
     /**
      * 获取用户信息
      */
-    List<Map<String, String>> getCustromer();
+    List<Map<String, String>> getCustromer(HttpServletRequest request);
 
     Boolean addCustomer(HttpServletRequest request);
 
