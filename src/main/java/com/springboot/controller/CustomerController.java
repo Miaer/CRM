@@ -151,4 +151,13 @@ public class CustomerController {
         System.out.println(customer);
         return customer;
     }
+
+
+    @RequestMapping("/updateCustomer")
+    @ResponseBody
+    public Boolean updateCustomer(Customer customer){
+        Boolean aBoolean = false;
+        aBoolean = custromerService.updateCustromer(customer);
+        return aBoolean;
+    }
 }

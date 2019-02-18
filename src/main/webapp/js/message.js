@@ -61,8 +61,9 @@ function Mesload() {
                 align: 'center',
                 formatter: function (value, row) {
                     var e = '<button button="#" mce_href="#" onclick="del(\'' + row.id + '\')">删除</button> ';
+                    var j = '<button button="#" mce_href="#" onclick="edit(\'' + row.id + '\')">修改</button> ';
                     var d = '<button button="#" mce_href="#" onclick="schedule(\'' + row.id + '\')">预约</button> ';
-                    return e + d;
+                    return e +j + d ;
                 }
             }
         ]
@@ -207,7 +208,6 @@ function openlayer(){
         closeBtn: 1,
         anim: 1,
         content: '/customer/toAddCustomerPage'
-        //iframe的url
     });
 }
 

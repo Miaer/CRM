@@ -13,6 +13,25 @@
             var height01 = $(window).height();
             $(".top").css('height', height01 - 35+"px");
         }
+
+        /*初始化修改页面*/
+        $(function () {
+            var currentID = parent.getCurrentID();
+            if(currentID != null && currentID != ""){
+                $.ajax({
+                    url:"/customer/findCustomerById?id="+currentID,
+                    success:function (data) {
+                        $("#companyName").val(data.company_name);
+                        $("#customerType").val(data.customer_type);
+                        $("#personName").val(data.person_name);
+                        $("#personPhone").val(data.person_phone);
+                        $("#address").val(data.address);
+                        $("#personPositoin").val(data.person_positoin);
+                        $("#memo").val(data.memo);
+                    }
+                })
+            }
+        })
     </script>
 </head>
 
@@ -67,7 +86,13 @@
 </body>
 
 <script >
+    /*
+    * 提交表单，新增『 parent.getCurrentID() 』没有值，修改客户数据是有值的。依此在前端进行请求分发。
+    * */
     function TaskCancel() {
+
+        var currentID = parent.getCurrentID();
+
         var companyName = $("#companyName").val();
         var customerType = $("#customerType").val();
         var personName = $("#personName").val();
@@ -76,33 +101,65 @@
         var personPositoin = $("#personPositoin").val();
         var memo = $("#memo").val();
 
-        $.ajax({
-            url:"/customer/InsertCustomer",
-            data:{
-                companyName:companyName,
-                customerType:customerType,
-                personName:personName,
-                personPhone:personPhone,
-                address:address,
-                personPositoin:personPositoin,
-                memo:memo
-            },
-            success: function (data) {
-                if (data){
-                    layer.open({
-                        anim:1,
-                        title: '添加信息',
-                        closeBtn:1,
-                        content: '添加成功',
-                        yes:function(){             //确定按钮回调方法
-                            parent.location.reload();
-                        }
-                    });
-                }else {
-                    layer.alert('添加失败');
+        if (currentID == null && currentID == ""){
+            $.ajax({
+                url:"/customer/InsertCustomer",
+                data:{
+                    companyName:companyName,
+                    customerType:customerType,
+                    personName:personName,
+                    personPhone:personPhone,
+                    address:address,
+                    personPositoin:personPositoin,
+                    memo:memo
+                },
+                success: function (data) {
+                    if (data){
+                        layer.open({
+                            anim:1,
+                            title: '添加信息',
+                            closeBtn:1,
+                            content: '添加成功',
+                            yes:function(){             //确定按钮回调方法
+                                parent.location.reload();
+                            }
+                        });
+                    }else {
+                        layer.alert('添加失败');
+                    }
                 }
-            }
-        });
+            });
+        }else {
+            $.ajax({
+                url:"/customer/updateCustomer",
+                data:{
+                    id:currentID,
+                    companyName:companyName,
+                    customerType:customerType,
+                    personName:personName,
+                    personPhone:personPhone,
+                    address:address,
+                    personPositoin:personPositoin,
+                    memo:memo
+                },
+                success: function (data) {
+                    if (data){
+                        layer.open({
+                            anim:1,
+                            title: '修改信息',
+                            closeBtn:1,
+                            content: '修改成功',
+                            yes:function(){             //确定按钮回调方法
+                                parent.location.reload();
+                            }
+                        });
+                    }else {
+                        layer.alert('修改失败');
+                    }
+                }
+            });
+        }
+
     }
 </script>
 <script src="/js/layer_v2.1/layer/layer.js"></script>

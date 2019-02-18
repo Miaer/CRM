@@ -30,4 +30,5 @@ public interface CustromerService {
 
     Map<String, String> findCustomerByVisitId(Integer id);
 
+    Boolean updateCustromer(Customer customer);
 }

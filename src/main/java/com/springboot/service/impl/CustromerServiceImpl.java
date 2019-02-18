@@ -117,4 +117,13 @@ public class CustromerServiceImpl implements CustromerService {
     public Map<String, String> findCustomerByVisitId(Integer id) {
         return customerMapper.findCustomerByVisitId(id);
     }
+
+    @Override
+    public Boolean updateCustromer(Customer customer) {
+        int i = customerMapper.updateCustromer(customer);
+        if (i > 0){
+            return true;
+        }
+        return false;
+    }
 }
