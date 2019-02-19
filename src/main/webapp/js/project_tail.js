@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/8/4.
  */
 
-var projectName, person, currentID, time, flag = true;
+var projectId, person, currentID, time, flag = true;
 function Recodeload() {
     $(function () {
         $('#table').bootstrapTable({
@@ -57,8 +57,13 @@ function Recodeload() {
                     field: 'id',
                     align: 'center',
                     formatter: function (value, row) {
+                        // row.id 客户id
                         var c = '<button button="#" mce_href="#" onclick="delRecode(\'' + row.id + '\')">删除</button> ';
-                        return c;
+                        /*
+                        * 修改功能，其思路和增加一样，和增加用同一页面，区别是：增加显示所有客户，修改 只显示当前要修改的客户的信息。
+                        * */
+                        var d = '<button button="#" mce_href="#" onclick="editRecode(\'' + row.id + '\')">修改</button> ';
+                        return c + d;
                     }
                 }
             ]
@@ -83,10 +88,20 @@ function addRecode() {
     currentID = parent.getCurrentID();
     openlayer();
 }
+
+var customer;
 function editRecode(id) {
-    currentID = id;
-    openUpdateLayer();
+    // 客户id
+    customer = id;
+    // 项目id
+    currentID = parent.getCurrentID();
+    updateProjectInfo(customer,projectId);
 }
+
+function getCustomerId() {
+    return customer;
+}
+
 function delRecode(id) {
     var proId = parent.getCurrentID(); //项目id
     var RecodeId = id;
@@ -130,11 +145,11 @@ function openlayer() {
         area: ['98%', '98%'],
         shadeClose: true,
         closeBtn: 2,
-        content:'/project/toAddProjectCutomerPage'
+        content:'/project/toAddProjectCutomerPage?customer='+customer+'&projectId='+projectId
     });
 
 }
-function openUpdateLayer() {
+function updateProjectInfo(customer,projectId) {
     layer.open({
         type: 2,
         title: '项目信息',
@@ -145,7 +160,7 @@ function openUpdateLayer() {
         area: ['98%', '98%'],
         shadeClose: true,
         closeBtn: 2,
-        content:"../project/project_tail.jsp"
+        content:"/project/updateProjectInfo?customerId="+customer+"&projectId="+projectId
     });
 
 }

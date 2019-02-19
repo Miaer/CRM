@@ -7,6 +7,7 @@ import com.springboot.pojo.Projectview;
 import com.springboot.pojo.SysUser;
 import com.springboot.service.CustromerService;
 import com.springboot.service.ProjectService;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -61,6 +63,7 @@ public class ProjectController {
 
     @RequestMapping("/toAddProjectCutomerPage")
     public String toAddProjectCutomerPage(HttpServletRequest request,Model model){
+
         Long uid = (Long)request.getSession().getAttribute("uid");
         List<Customer> customerList = custromerService.findCustomerByUserId(uid);
         List<SysUser> userList = sysUserMapper.findAllUser();
@@ -71,6 +74,34 @@ public class ProjectController {
         return "project/project_update";
     }
 
+    /**
+     * 接受客户id和项目id用作去到更新页面的初始化
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("updateProjectInfo")
+    public String updateProjectInfo(HttpServletRequest request,Model model){
+        String customerId = request.getParameter("customerId");
+        String projectId = request.getParameter("projectId");
+
+        Long uid = (Long)request.getSession().getAttribute("uid");
+        List<Customer> customerList = custromerService.findCustomerByUserId(uid);
+
+        for (int i = 0; i < customerList.size(); i++) {
+            boolean b = String.valueOf(customerList.get(i).getId()).equals(customerId);
+            if (b) {
+                List<Customer> customerListTemp = new ArrayList<>();
+                Customer customer = customerList.get(i);
+                customerListTemp.add(customer);
+                model.addAttribute("customerList",customerListTemp);
+            }
+        }
+
+        List<SysUser> userList = sysUserMapper.findAllUser();
+        model.addAttribute("userList",userList);
+        return "project/project_update";
+    }
 
     /**
      *
@@ -78,9 +109,9 @@ public class ProjectController {
      */
     @RequestMapping("/findProjecatInvestByProId")
     @ResponseBody
-    public Map<String, Object> findProjecatInvestByProId(Integer proId,Integer ciId){
+    public Map<String, Object> findProjecatInvestByProId(@Param("proId") Integer proId,@Param("cuid") Integer cuid){
 
-        Map<String, Object> maps = projectService.findProjecatInvestByProId(proId,ciId);
+        Map<String, Object> maps = projectService.findProjecatInvestByProId(proId,cuid);
         return maps;
     }
 

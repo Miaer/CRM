@@ -31,31 +31,6 @@ function init() {
             $("#assert_volumn").val(result.assert_volumn);
             $("#person_company").val(result.person_company);
         }});
-
-}
-
-function initUser1(){
-    var userName = $("#user1Name option:selected").text();
-    var customerId = $("#customerid option:selected").val();
-    $.ajax({
-        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
-        success: function (result) {
-            $("#user_fee1").val(result.user_fee1);
-            $("#user_fee2").val(result.user_fee2);
-        }
-    });
-}
-
-function initUser2(){
-    var userName = $("#user2Name option:selected").text();
-    var customerId = $("#customerid option:selected").val();
-    $.ajax({
-        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
-        success: function (result) {
-            $("#user2_fee1").val(result.user2_fee1);
-            $("#user2_fee2").val(result.user2_fee2);
-        }
-    });
 }
 
 /**
@@ -66,19 +41,55 @@ function initPro() {
     PROJECTID = parent.getCurrentID();
     if (PROJECTID != null){
         $.ajax({
-            url: '/project/findProjecatInvestByProId?proId=' + PROJECTID+"&cuid = "+customerID,
+            url: "/project/findProjecatInvestByProId?proId=" +PROJECTID+"&cuid="+customerID,
             type: 'POST',
-            dataType: 'json',
             success: function (result) {
-                $("#invest_date").val(result.invest_date);
-                $("#invest_amount").val(result.invest_amount);
-                $("#invest_fee").val(result.invest_fee);
-                $("#collect").val(result.collect);
-                $("#user_fee1").val();
-                $("#cumemo").val(result.memo);
+                if (result !== ""){
+                    $("#invest_date").val(result.invest_date);
+                    $("#invest_amount").val(result.invest_amount);
+                    $("#invest_fee").val(result.invest_fee);
+                    $("#collect").val(result.collect);
+                    $("#cumemo").val(result.memo);
+                }else {
+                    $("#invest_date").val("");
+                    $("#invest_amount").val("");
+                    $("#invest_fee").val("");
+                    $("#collect").val("");
+                    $("#cumemo").val("");
+                }
             }});
     }
 }
+
+function initUser1(){
+    var userName = $("#user1Name option:selected").text();
+    var customerId = $("#customerid option:selected").val();
+    PROJECTID = parent.getCurrentID();
+    $.ajax({
+        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
+        success: function (result) {
+            $("#user_fee1").val(result.user_fee1);
+            $("#user_fee2").val(result.user_fee2);
+        }
+    });
+    initPro()
+}
+
+function initUser2(){
+    var userName = $("#user2Name option:selected").text();
+    var customerId = $("#customerid option:selected").val();
+    PROJECTID = parent.getCurrentID();
+    $.ajax({
+        url:"/project/findProjecatInvestUser1NameByUserId?userName="+userName+"&proId="+PROJECTID+"&customerId="+customerId,
+        success: function (result) {
+            $("#user2_fee1").val(result.user2_fee1);
+            $("#user2_fee2").val(result.user2_fee2);
+        }
+    });
+    initPro()
+}
+
+
 function RecodeSave() {
     $.ajax({
         type: "POST",
@@ -100,7 +111,7 @@ function RecodeSave() {
 
             collect : $("#collect").val(),                  //汇总
 
-            projectMemo : $("#project_memo").val(),         //项目的备注
+            projectMemo : $("#cumemo").val(),               //理财师备注 将{#cumemo}的值给到project_invest 表里的memo字段
 
             //------------------客户信息------------------------------------------------------------------
 
@@ -125,7 +136,7 @@ function RecodeSave() {
             userFee2 : $("#user_fee2").val(),               //后端费用
             user2Fee1 : $("#user2_fee1").val(),             // 前端费用
             user2Fee2 : $("#user2_fee2").val(),             // 后端费用
-            cumemo : $("#cumemo").val()                     //客户的更多备注
+            // cumemo : $("#cumemo").val()
         },
         dataType: "json",
         success: function (result) {

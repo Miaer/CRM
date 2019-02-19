@@ -12,7 +12,7 @@
     <script src="/js/layer_v2.1/layer/layer.js"></script>
     <script src="/js/date/js/laydate.js"></script>
     <script src="/js/project_update.js"></script>
-
+    <script src="/js/project_tail.js"></script>
 </head>
 
 <body style="border-radius: 8px" onload="change(),init(),initPro(),initUser1(),initUser2()">
@@ -43,37 +43,37 @@
                         <td>汇总：</td>
                         <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="collect"></td>
                     </tr>
-                    <tr>
-                        <td>备注1：</td>
+                   <%-- <tr>
+                        <td>项目备注：</td>
                         <td colspan = "9" style="text-align: left"><textarea  id="project_memo" style="width: 100%;height: 150px"></textarea></td>
-                    </tr>
+                    </tr>--%>
                     <%---------------------客户相关--------------------%>
                     <tr>
                         <td>身份证号：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="identification"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="identification"></td>
                         <td >联系电话：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="person_phone"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="person_phone"></td>
                         <td >其他联系方式：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="person_phone2"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="person_phone2"></td>
                     </tr>
 
                     <tr>
                         <td >住所：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="home_address"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="home_address"></td>
                         <td >个人可投资产量级：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="assert_volumn"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="assert_volumn"></td>
                         <td >所在公司：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="person_company"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="person_company"></td>
                     </tr>
 
                     <tr>
                         <td >职务：</td>
-                        <td colspan = "1" style="text-align: left"><input type="text" class="long_text" id="person_positoin"></td>
+                        <td colspan = "1" style="text-align: left"><input type="text" disabled="disabled" class="long_text" id="person_positoin"></td>
                     </tr>
 
                     <%--------------------理财师1-------------------------------%>
                     <tr>
-                        <td >姓名：</td>
+                        <td >理财师姓名：</td>
                         <td colspan = "1" style="text-align: left">
                         <select id="user1Name" onchange="initUser1()">
                             <c:forEach items="${userList}" var="user">
@@ -92,7 +92,7 @@
 
                     <tr>
 
-                        <td >姓名：</td>
+                        <td >理财师姓名：</td>
                         <td colspan = "1" style="text-align: left">
                         <select id="user2Name" onchange="initUser2()">
                             <c:forEach items="${userList}" var="user">
@@ -108,7 +108,7 @@
                     </tr>
 
                     <tr>
-                        <td>备注2：</td>
+                        <td>理财师备注：</td>
                         <td colspan = "9" style="text-align: left"><textarea  id="cumemo" style="width: 100%;height: 150px"></textarea></td>
                     </tr>
                 </tbody>
