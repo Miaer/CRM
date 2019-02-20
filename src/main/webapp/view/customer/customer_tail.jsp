@@ -101,7 +101,7 @@
         var personPositoin = $("#personPositoin").val();
         var memo = $("#memo").val();
 
-        if (currentID == null && currentID == ""){
+        if (currentID === ""){
             $.ajax({
                 url:"/customer/InsertCustomer",
                 data:{
