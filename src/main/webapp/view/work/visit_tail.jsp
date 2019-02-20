@@ -102,27 +102,27 @@
 
     function init() {
         var visit = parent.getVisit();
-        alert(visit);
-            $.ajax({
-                url: '/visit/findCustomer',
-                type: 'post',
-                dataType: 'json',
-                success: function (result) {
-                    if (result != null) {
+        // alert(visit);
+        $.ajax({
+            url: '/visit/findCustomer',
+            type: 'post',
+            dataType: 'json',
+            success: function (result) {
+                if (result != null) {
 
-                        for (i = 0;i < result.length;i++){
-                            $("#tit").append("<option value='"+result[i].id+"'>"+result[i].companyName+"</option>");
-                        }
-
-
+                    for (i = 0;i < result.length;i++){
+                        $("#tit").append("<option value='"+result[i].id+"'>"+result[i].companyName+"</option>");
                     }
-                    else {
-                        alert("获取失败！");
-                    }
-                },
-                error: function (err) {
+
+
                 }
-            })
+                else {
+                    alert("获取失败！");
+                }
+            },
+            error: function (err) {
+            }
+        })
     }
 
 </script>

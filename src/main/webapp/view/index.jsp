@@ -9,14 +9,14 @@
     <%--<style>
         .layui-layer-title{background:url(/images/righttitlebig.png) repeat-x;font-weight:bold;color:#46647e; border:1px solid #c1d3de;height: 33px;line-height: 33px;}
     </style>--%>
-<title>橙叶管理系统</title>
+<title>橙叶投资管理系统</title>
 </head>
 <body>
 <div id="container">
 	<div id="hd">
     	<div class="hd-wrap ue-clear">
         	<div class="top-light"></div>
-            <h1 class="logo"></h1>
+            <%--<h1 class="logo"></h1>--%>
             <div class="login-info ue-clear">
                 <div class="welcome ue-clear"><span>欢迎您,</span><a href="javascript:void(0)" class="user-name">${sessionScope.uname}</a></div>
                 <%--<div class="login-msg ue-clear">
@@ -117,11 +117,11 @@
         </div>
     </div>
 </div>
-<div class="exitDialog">
-	<div class="dialog-content">
-    	<div class="ui-dialog-icon"></div>
+<div class="exitDialog" style="display:none">
+    <div class="dialog-content">
+        <div class="ui-dialog-icon"></div>
         <div class="ui-dialog-text">
-        	<p class="dialog-content">你确定要退出系统？</p>
+            <p class="dialog-content">你确定要退出系统？</p>
             <p class="tips">如果是请点击“确定”，否则点“取消”</p>
             <div class="buttons">
                 <input type="button" class="button long2 ok" value="确定" />
