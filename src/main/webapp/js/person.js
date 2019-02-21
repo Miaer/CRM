@@ -96,11 +96,6 @@ function del(id) {
         return row ;
     });
 
-    if (row.length == 0){
-        layer.msg(
-            "请选择要删除项",{icon:5});
-        return;
-    }
 
     for(var i=0;i<row.length;i++){
         uidArr[i] = row[i].uid;
@@ -108,6 +103,12 @@ function del(id) {
 
     if (id != null && id > 0)
         uidArr.push(id);
+
+    if (uidArr.length === 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
 
     $.ajax({
         url: '/customer/delCustomer',

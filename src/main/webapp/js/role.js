@@ -104,11 +104,7 @@ function delRole(id) {
         return row ;
     });
 
-    if (row.length == 0){
-        layer.msg(
-            "请选择要删除项",{icon:5});
-        return;
-    }
+
 
     for(var i=0;i<row.length;i++){
         ridArr[i] = row[i].id;
@@ -116,6 +112,12 @@ function delRole(id) {
 
     if (id != null && id > 0)
         ridArr.push(id);
+
+    if (ridArr.length === 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
 
     $.ajax({
         type: "post",
