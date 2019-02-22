@@ -41,7 +41,7 @@ function Roleload() {
                 align: 'center',
                 formatter: function (value, row) {
                     /*var e = '<button button="#" mce_href="#" onclick="editRole(\'' + row.id + '\')">权限修改</button> '*/
-                    var d = '<button button="#" mce_href="#" onclick="delRole(\'' + row.id + '\')">删除</button> '
+                    var d = '<button button="#" mce_href="#" onclick="delRole(\'' + row.id + '\')">删除</button> ';
                     return d ;
                 }
             }

@@ -71,4 +71,11 @@ public interface CustomerMapper {
 
     @UpdateProvider(type = CustromerRrovider.class,method = "updateCustromer")
     int updateCustromer(Customer customer);
+
+    @Select("<script> select * from customer where customer_type in " +
+            "<foreach collection='array' open='(' item='item' separator=',' close=')'>" +
+            " #{item}" +
+            "</foreach> " +
+            "</script>")
+    List<Customer> findCustomerByCustomerTypeArr(Integer[] cuTypeArr);
 }

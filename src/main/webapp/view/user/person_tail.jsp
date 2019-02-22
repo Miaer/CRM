@@ -77,8 +77,15 @@
             dataType: "json",
             success: function (result) {
                 if (result){
-                    alert("添加成功");
-                    parent.location.reload();
+                    layer.open({
+                        anim:1,
+                        title: '添加信息',
+                        closeBtn:1,
+                        content: '添加成功',
+                        yes:function(){             //确定按钮回调方法
+                            parent.location.reload();
+                        }
+                    });
                 }else {
                     alert("添加失败");
                 }

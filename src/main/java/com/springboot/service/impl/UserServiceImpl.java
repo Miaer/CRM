@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public Boolean updateUserInfo(HttpServletRequest request) {
         String userName = request.getParameter("userName");
-        Long userId1 = Long.valueOf(request.getParameter("uid"));
+        Long userId1 = Long.valueOf(request.getParameter("id"));
         String role = request.getParameter("role");
         String password = request.getParameter("password");
         //String againPassword = request.getParameter("againPassword");

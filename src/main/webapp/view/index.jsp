@@ -107,6 +107,7 @@
                             <li><a href="/user/toCustomerPage" target="right">用户管理</a></li>
                             <%--<li><a href="part.html" target="right">部门管理</a></li>--%>
                             <li><a href="/role/toRolePage" target="right">角色管理</a></li>
+                            <li><a href="/customerType/toCustomerType" target="right">客户类型管理</a></li>
                         </ul>
                     </li>
                 </ul>

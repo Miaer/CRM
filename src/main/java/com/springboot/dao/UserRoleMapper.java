@@ -1,7 +1,9 @@
 package com.springboot.dao;
 
+import com.springboot.pojo.SysUserRole;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserRoleMapper {
@@ -21,4 +23,12 @@ public interface UserRoleMapper {
 
     @Update("update sys_user_role set role_id = #{role} where user_id = #{userId}")
     int updateRole(@Param("userId") Long userId,@Param("role") Long role);
+
+    @Select("<script>" +
+            "select * from sys_user_role where role_id in " +
+            "<foreach collection='array' open='(' item='item' separator=',' close=')'>" +
+            " #{item}" +
+            "</foreach> " +
+            "</script>")
+    List<SysUserRole> findUserRoleByArr(Integer[] ridArr);
 }

@@ -184,7 +184,6 @@ function del(id) {
                     window.location.reload();
                 }
                 });
-
             } else {
                 alert("删除失败")
             }
