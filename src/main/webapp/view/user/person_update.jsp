@@ -42,21 +42,21 @@
                     </td>
                 </tr>
                 <td>用户密码：</td>
-                <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="person"></td>
+                <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="person" value="${user.password}"></td>
                 <tr>
                     <td>再次输入密码：</td>
-                    <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="againPerson"></td>
+                    <td colspan = "3" style="text-align: left"><input type="password" class="long_text" id="againPerson" value="${user.password}"></td>
                 </tr>
                 <tr>
                     <td style="line-height: 200px">备注：</td>
-                    <td colspan = "2" style="text-align: left"><textarea  id="note" style="width: 100%;height: 200px"></textarea></td>
+                    <td colspan = "2" style="text-align: left"><textarea  id="note" style="width: 100%;height: 200px">${user.node}</textarea></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="bot_btn">
-        <input class="btn" type="submit" value="更新" onclick="eidt()"/>
+        <input class="btn" value="更新" onclick="eidtUser()"/>
         <button class="btn btn1"><a href="/view/user/person.jsp" target="right">返回</a></button>
     </div>
 </div>
@@ -74,12 +74,12 @@
         laydate({ elem: '#demo2' });//绑定元素
     }();
 
-    function eidt(){
+    function eidtUser(){
         $.ajax({
             url: "/user/updateUser",
             type:"post",
             data:{
-                uid : parent.getCurrentID(),
+                id : parent.getCurrentID(),
                 userName : $("#recodeTit").val(),
                 role:$("#roleOption option:selected").val(),
                 password: $("#person").val(),

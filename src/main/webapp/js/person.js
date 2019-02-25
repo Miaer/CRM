@@ -15,7 +15,6 @@ function Personload() {
         search: false, //显示搜索框
         contentType: "application/x-www-form-urlencoded",
         queryParams: null,
-        uniqueId:"uid",                      //每一行的唯一标识，一般为主键列
         columns: [
 
             {
@@ -46,7 +45,7 @@ function Personload() {
             },
             {
                 title: '操作',
-                field: '',
+                field: 'uid',
                 align: 'center',
                 formatter: function (value, row) {
                     var e = '<button button="#" mce_href="#" onclick="del(\'' + row.uid + '\')">删除</button> '
@@ -96,11 +95,6 @@ function del(id) {
         return row ;
     });
 
-    if (row.length == 0){
-        layer.msg(
-            "请选择要删除项",{icon:5});
-        return;
-    }
 
     for(var i=0;i<row.length;i++){
         uidArr[i] = row[i].uid;
@@ -108,6 +102,12 @@ function del(id) {
 
     if (id != null && id > 0)
         uidArr.push(id);
+
+    if (uidArr.length === 0){
+        layer.msg(
+            "请选择要删除项",{icon:5});
+        return;
+    }
 
     $.ajax({
         url: '/customer/delCustomer',
@@ -118,8 +118,15 @@ function del(id) {
         dataType: 'json',
         success: function (data) {
             if (data) {
-                alert("删除成功");
-                getData();
+                layer.open({
+                    anim:1,
+                    title: '删除信息',
+                    closeBtn:1,
+                    content: '删除成功',
+                    yes:function(){             //确定按钮回调方法
+                        window.location.reload();
+                    }
+                });
             } else {
                 alert("删除失败")
             }
